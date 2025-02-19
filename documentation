@@ -4,7 +4,9 @@ How to start the script
 A plugin do start with !-- For choose how the script do lunch
 Exemple
 !-- AUTORUN for automatically runs a script after a round is started
-A plugin always do start with !--AUTORUN and not other thing like !--JAILBIRD_EVENT etc
+A plugin always do start with !--AUTORUN and not other thing 
+
+EVERYONE FINISH BY A _EVENT NOT WORK !!!
 
 List of diferent action ! :
 
