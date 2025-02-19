@@ -8545,6 +8545,9 @@ DOOR CLOSE HeavyContainment
 LIGHTCOLOR SET HeavyContainment 255 255 255
 STOP
 
+Other exempel of a script : 
+
+
 !-- AUTORUN
 LOOP:
 WAIT UNTIL {ROUNDSTARTED}
