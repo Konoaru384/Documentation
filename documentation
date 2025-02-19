@@ -1,0 +1,8638 @@
+This is all of the scripted evnt documentation for do plugin with scripted event in exiled for scp secret laboratory :
+
+
++ ADVCUSTOMINFO +
+
+Sets/clears the custom info of the targeted player(s).
+
+Action type: Player
+
+Usage: ADVCUSTOMINFO <MODE> <PLAYERS> [TARGETS] [TEXT]
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Sets players' custom info.
+
+    - 'REMOVE' - Clears players' custom info.
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+[targets]
+
+  Required: NO
+
+  Type: Player List
+
+  The players that will see the action taking place. Only used if mode is SET.
+
+
+
+[text]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The text to set custom info to. Only used if mode is SET.
+
+
+
+
+
++ AHP +
+
+Modifies AHP of the targeted players.
+
+Action type: Health
+
+Usage: AHP <PLAYERS> <HEALTH> [LIMIT] [DECAY] [EFFICACY] [SUSTAIN] [PERSISTENT]
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+<health>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The amount of artificial health to ADD to the player. Use a negative number to remove.
+
+
+
+[limit]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The upper limit of AHP. Default: 75.
+
+
+
+[decay]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The AHP decay rate (how much AHP is lost per second). Default: 1.2.
+
+
+
+[efficacy]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The percent of incoming damage absorbed by AHP. Default: 0.7.
+
+
+
+[sustain]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The amount of time (in seconds) before the AHP begins to decay. Default: 0.
+
+
+
+[persistent]
+
+  Required: NO
+
+  Type: Boolean (TRUE/FALSE)
+
+  Whether or not the AHP process is removed entirely when the AHP reaches 0. Default: FALSE.
+
+
+
++ APPEND +
+
+Adds a specified string to the end of the variable value, and saves that as the new value.
+
+Action type: Variable
+
+Usage: APPEND <VARIABLENAME> <VALUE>
+
+
+
+
+
+Arguments:
+
+<variableName>
+
+  Required: YES
+
+  Type: String (Message/Text) Variable
+
+  The string variable.
+
+
+
+<value>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The value to add. Math is supported.
+
+
+
++ BAN +
+
+Bans specified players.
+
+Action type: Player
+
+Usage: BAN <PLAYERS> <DURATION> <REASON>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  Players to ban.
+
+
+
+<duration>
+
+  Required: YES
+
+  Type: Int (Whole Number)
+
+  Ban duration (in seconds).
+
+
+
+<reason>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  Ban reason.
+
+
+
++ BIND +
+
+Changes a name of a local variable. If a variable in question is global, a local copy is created with the given name.
+
+Action type: Variable
+
+Usage: BIND <NEWVARIABLENAME> [OLDVARIABLE]
+
+
+
+
+
+Arguments:
+
+<newVariableName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name of the new variable.
+
+
+
+[oldVariable]
+
+  Required: NO
+
+  Type: Condition Variable
+
+  The value of the variable.
+
++ BROADCAST +
+
+Broadcasts a message to specific player(s).
+
+Action type: Broadcast
+
+Usage: BROADCAST <PLAYERS> <DURATIONSECONDS> <MESSAGE>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to show.
+
+
+
+<durationSeconds>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The duration of the message.
+
+
+
+<message>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The message.
+
+
+
++ BYPASS +
+
+Grants or removes bypass to specified players.
+
+Action type: Player
+
+Usage: BYPASS <PLAYERS> <MODE>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  Players to change bypass state.
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: Boolean (TRUE/FALSE)
+
+  Bypass mode.
+
+
+
++ CALL +
+
+Executes a provided script. Will wait until called script finishes execution. Can provide arguments for the called script.
+
+Action type: Logic
+
+Usage: CALL <SCRIPT> [ARGUMENTS]
+
+
+
+
+
+Arguments:
+
+<script>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The script to call.
+
+
+
+[arguments]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The arguments to provide for the called script. Can be empty. All arguments will be provided to the called script as {ARG1}, {ARG2} etc. and {ARGS}.
+
+
+
++ CASSIE +
+
+Makes a cassie announcement for the entire facility.
+
+Action type: C.A.S.S.I.E
+
+Usage: CASSIE <MODE> <MESSAGE>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SILENT' - Makes a silent announcement.
+
+    - 'LOUD' - Makes a loud announcement.
+
+
+
+<message>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The message. Separate message with a | to specify a caption.
+
+
+
+Examples:
+
+
+
+=== Case 1 ===
+
+Announce "Hello" with the caption of "Goodbye"
+
+
+
+```
+
+CASSIE LOUD Hello|Goodbye
+
+```
+
+
+
+=== Case 2 ===
+
+Announce "Hello" with the caption of "Hello". No caption is needed in this sample, since by default the caption is equivalent to the text CASSIE speaks.
+
+
+
+```
+
+CASSIE LOUD Hello
+
+```
+
+
+
+=== Case 3 ===
+
+Announce "Hello" with no caption.
+
+
+
+```
+
+CASSIE LOUD Hello|
+
+```
+
+
+
+
+
++ CASSIEPLAYER +
+
+Makes a cassie announcement for specified players.
+
+Action type: C.A.S.S.I.E
+
+Usage: CASSIEPLAYER <MODE> <PLAYERS> <MESSAGE>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SILENT' - Makes a silent announcement.
+
+    - 'LOUD' - Makes a loud announcement.
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to play the CASSIE announcement for.
+
+
+
+<message>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The message. Separate message with a | to specify a caption.
+
+
+
++ CLEANUP +
+
+Clean up items/ragdolls.
+
+Action type: Map
+
+Usage: CLEANUP <MODE> [FILTER]
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ITEMS' - Clean items.
+
+    - 'RAGDOLLS' - Clean ragdolls.
+
+
+
+[filter]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  Optionally, an ItemType/RoleTypeId of items/ragdolls to remove.
+
+
+
++ CLEARBROADCASTS +
+
+Clears all broadcasts for specified player(s).
+
+Action type: Broadcast
+
+Usage: CLEARBROADCASTS <PLAYERS>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
++ CLEARCASSIE +
+
+Clears cassie queue.
+
+Action type: C.A.S.S.I.E
+
+Usage: CLEARCASSIE
+
+
+
+
+
++ CLEARINVENTORY +
+
+Clears inventory of the targeted players.
+
+Action type: Item
+
+Usage: CLEARINVENTORY <PLAYERS>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
++ COMMAND +
+
+Runs a server command with full permission.
+
+Action type: Server
+
+Usage: COMMAND <COMMAND>
+
+
+
+This action executes commands as the server. Therefore, the command needs '/' before it if it's a RA command, or '.' before it if its a console command.
+
+Note: Player variables will be converted to the amount of players when used directly. In order to use player variables to target players within a command, encase them within the 'C' variable. For example: 'COMMAND /kill {C:PLAYERS}' to kill all players.
+
+
+
+
+
+Arguments:
+
+<command>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The command to run.
+
+
+
++ COUNTDOWN +
+
+Displays a countdown on the player(s) screens (using broadcasts).
+
+Action type: Broadcast
+
+Usage: COUNTDOWN <PLAYERS> <DURATIONSECONDS> <TEXT>
+
+
+
+Countdowns use the broadcast system. As such, players who are given a countdown cannot see any other broadcasts until the countdown concludes or is terminated.
+
+
+
+The text of the broadcast will be formatted using the countdown_string Exiled config. If the text parameter is not provided, the text displayed will simply be 'Countdown'.
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to show the countdown to.
+
+
+
+<durationSeconds>
+
+  Required: YES
+
+  Type: Int64
+
+  The duration of the countdown.
+
+
+
+<text>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The text to show on the broadcast.
+
+
+
++ CUSTOMINFO +
+
+Sets/clears the custom info of the targeted player(s).
+
+Action type: Player
+
+Usage: CUSTOMINFO <MODE> <PLAYERS> [TEXT]
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Sets players' custom info.
+
+    - 'REMOVE' - Clears players' custom info.
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+[text]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The text to set custom info to. Only used if mode is SET.
+
+
+
++ DAMAGE +
+
+Damages the targeted players.
+
+Action type: Health
+
+Usage: DAMAGE <PLAYERS> <DAMAGE> [DAMAGETYPE]
+
+
+
+A base-game DamageType may be used to provide a base-game death message. Alternatively, a custom message may be used instead of a DamageType.
+
+A full list of valid DamageType IDs (as of 18/02/2025 22:38) follows:
+
+- [0] Unknown
+
+- [1] Falldown
+
+- [2] Warhead
+
+- [3] Decontamination
+
+- [4] Asphyxiation
+
+- [5] Poison
+
+- [6] Bleeding
+
+- [7] Firearm
+
+- [8] MicroHid
+
+- [9] Tesla
+
+- [10] Scp
+
+- [11] Explosion
+
+- [12] Scp018
+
+- [13] Scp207
+
+- [14] Recontainment
+
+- [15] Crushed
+
+- [16] FemurBreaker
+
+- [17] PocketDimension
+
+- [18] FriendlyFireDetector
+
+- [19] SeveredHands
+
+- [20] SeveredEyes
+
+- [21] Custom
+
+- [22] Scp049
+
+- [23] Scp096
+
+- [24] Scp173
+
+- [25] Scp939
+
+- [26] Scp0492
+
+- [27] Scp106
+
+- [28] Crossvec
+
+- [29] Logicer
+
+- [30] Revolver
+
+- [31] Shotgun
+
+- [32] AK
+
+- [33] Com15
+
+- [34] Com18
+
+- [35] Fsp9
+
+- [36] E11Sr
+
+- [37] Hypothermia
+
+- [38] ParticleDisruptor
+
+- [39] CardiacArrest
+
+- [40] Com45
+
+- [41] Jailbird
+
+- [42] Frmg0
+
+- [43] A7
+
+- [44] Scp3114
+
+- [45] Strangled
+
+- [46] Marshmallow
+
+- [47] Scp1507
+
+- [48] Scp956
+
+- [49] SnowBall
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to damage.
+
+
+
+<damage>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The amount of damage to apply.
+
+
+
+[damageType]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The type of damage to apply. If a DamageType is not matched, this will act as a custom message instead. Default: Unknown
+
+
+
++ DAMAGERULE +
+
+Creates a new damage rule.
+
+Action type: Round Rule
+
+Usage: DAMAGERULE <ATTACKERRULE> <RECEIVERRULE> <MULTIPLIER>
+
+
+
+
+
+Arguments:
+
+<attackerRule>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The rule for the attacker (either a role, team, or player variable)
+
+
+
+<receiverRule>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The rule for the receiver (either a role, team, or player variable)
+
+
+
+<multiplier>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The multiplier to apply to the damage rule.
+
+
+
++ DECONTAMINATE +
+
+Enables, disables, or forces decontamination.
+
+Action type: Map
+
+Usage: DECONTAMINATE [MODE]
+
+
+
+
+
+Arguments:
+
+[mode]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The action (ENABLE, DISABLE, FORCE). Default: FORCE
+
+
+
++ DELINFECTRULE +
+
+Delete a currently-existing infection rule.
+
+Action type: Round Rule
+
+Usage: DELINFECTRULE <ROLE>
+
+
+
+
+
+Arguments:
+
+<role>
+
+  Required: YES
+
+  Type: RoleTypeId (ID / Number)
+
+  The role a player must die as to be infected.
+
+
+
++ DISABLE +
+
+Disables a feature for the entire round.
+
+Action type: Round Rule
+
+Usage: DISABLE <KEY>
+
+
+
+The following keys contain functionality when used in DISABLE/ENABLE and DISABLEPLAYER/ENABLEPLAYER.
+
+
+
+- DOORS - Disables all door interactions.
+
+- DROPPING - Disables dropping and throwing items.
+
+- DYING - Prevents player(s) from dying.
+
+- ELEVATORS - Disables all elevator functionality.
+
+- ESCAPING - Prevents player(s) from escaping.
+
+- GENERATORS - Prevents player(s) from interacting with generators.
+
+- HAZARDS - Disables all hazard functionality.
+
+- HURTING - Prevents player(s) from taking damage.
+
+- ITEMPICKUPS - Disables all item pickup functionality.
+
+- LOCKERS - Disables all locker functionality.
+
+- MICROPICKUPS - Disables item pickup functionality only for Micro-HID drops.
+
+- PEDESTALS - Disables all pedestal functionality.
+
+- SCP049ATTACK - Disables SCP-049's primary attack.
+
+- SCP0492ATTACK - Disables SCP-049-2's primary attack.
+
+- SCP096ATTACK - Disables SCP-096's primary attack.
+
+- SCP106ATTACK - Disables SCP-106's primary attack.
+
+- SCP173ATTACK - Disables SCP-173's primary attack.
+
+- SCP330 - Disables all SCP-330 functionality.
+
+- SCP914 - Disables all SCP-914 functionality.
+
+- SCP939ATTACK - Disables SCP-939's primary attack.
+
+- SCP3114ATTACK - Disables SCP-3114's primary attack.
+
+- SCPALLABILITIES - Disables all SCP abilities.
+
+- SCPATTACK - Disables all SCP attacks.
+
+- SHOOTING - Disables all shooting functionality.
+
+- TESLAS - Disables all tesla functionality.
+
+- WARHEAD - Prevents player(s) from interacting with the warhead.
+
+- WORKSTATIONS - Disables all workstation functionality.
+
+- CUFFING - Disables cuffing.
+
+
+
+The following keys can ONLY be used in DISABLE and ENABLE. They cannot be tied to specific players.
+
+- NTFANNOUNCEMENT * - Disables NTF spawn announcements.
+
+- RESPAWNS - Prevents player(s) from respawning as Chaos/NTF.
+
+- SCPANNOUNCEMENT - Disables SCP termination announcements.
+
+
+
+
+
+
+
+Arguments:
+
+<key>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The key of the feature to disable. See documentation for a whole list of keys.
+
+
+
++ DISABLEPLAYER +
+
+Disables a feature for the entire round, but only for certain player(s).
+
+Action type: Round Rule
+
+Usage: DISABLEPLAYER <PLAYERS> <KEY>
+
+
+
+The following keys contain functionality when used in DISABLE/ENABLE and DISABLEPLAYER/ENABLEPLAYER.
+
+
+
+- DOORS - Disables all door interactions.
+
+- DROPPING - Disables dropping and throwing items.
+
+- DYING - Prevents player(s) from dying.
+
+- ELEVATORS - Disables all elevator functionality.
+
+- ESCAPING - Prevents player(s) from escaping.
+
+- GENERATORS - Prevents player(s) from interacting with generators.
+
+- HAZARDS - Disables all hazard functionality.
+
+- HURTING - Prevents player(s) from taking damage.
+
+- ITEMPICKUPS - Disables all item pickup functionality.
+
+- LOCKERS - Disables all locker functionality.
+
+- MICROPICKUPS - Disables item pickup functionality only for Micro-HID drops.
+
+- PEDESTALS - Disables all pedestal functionality.
+
+- SCP049ATTACK - Disables SCP-049's primary attack.
+
+- SCP0492ATTACK - Disables SCP-049-2's primary attack.
+
+- SCP096ATTACK - Disables SCP-096's primary attack.
+
+- SCP106ATTACK - Disables SCP-106's primary attack.
+
+- SCP173ATTACK - Disables SCP-173's primary attack.
+
+- SCP330 - Disables all SCP-330 functionality.
+
+- SCP914 - Disables all SCP-914 functionality.
+
+- SCP939ATTACK - Disables SCP-939's primary attack.
+
+- SCP3114ATTACK - Disables SCP-3114's primary attack.
+
+- SCPALLABILITIES - Disables all SCP abilities.
+
+- SCPATTACK - Disables all SCP attacks.
+
+- SHOOTING - Disables all shooting functionality.
+
+- TESLAS - Disables all tesla functionality.
+
+- WARHEAD - Prevents player(s) from interacting with the warhead.
+
+- WORKSTATIONS - Disables all workstation functionality.
+
+- CUFFING - Disables cuffing.
+
+
+
+The following keys can ONLY be used in DISABLE and ENABLE. They cannot be tied to specific players.
+
+- NTFANNOUNCEMENT * - Disables NTF spawn announcements.
+
+- RESPAWNS - Prevents player(s) from respawning as Chaos/NTF.
+
+- SCPANNOUNCEMENT - Disables SCP termination announcements.
+
+
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to disable for.
+
+
+
+<key>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The key of the feature to disable. See documentation for a whole list of keys.
+
+
+
++ DOOR +
+
+Controls map doors.
+
+Action type: Map
+
+Usage: DOOR <MODE> <DOORS>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'LOCK' - Lock doors.
+
+    - 'UNLOCK' - Unlock doors.
+
+    - 'OPEN' - Open doors.
+
+    - 'CLOSE' - Close doors.
+
+    - 'DESTROY' - Permanently destroy doors.
+
+
+
+<doors>
+
+  Required: YES
+
+  Type: Door List
+
+  The doors to affect.
+
+
+
++ DROPITEM +
+
+Drops a specified item from players' inventories.
+
+Action type: Item
+
+Usage: DROPITEM <PLAYERS> <ITEM> [AMOUNT]
+
+
+
+A full list of valid Item IDs (as of 18/02/2025 22:38) follows:
+
+- [0] KeycardJanitor
+
+- [1] KeycardScientist
+
+- [2] KeycardResearchCoordinator
+
+- [3] KeycardZoneManager
+
+- [4] KeycardGuard
+
+- [5] KeycardMTFPrivate
+
+- [6] KeycardContainmentEngineer
+
+- [7] KeycardMTFOperative
+
+- [8] KeycardMTFCaptain
+
+- [9] KeycardFacilityManager
+
+- [10] KeycardChaosInsurgency
+
+- [11] KeycardO5
+
+- [12] Radio
+
+- [13] GunCOM15
+
+- [14] Medkit
+
+- [15] Flashlight
+
+- [16] MicroHID
+
+- [17] SCP500
+
+- [18] SCP207
+
+- [19] Ammo12gauge
+
+- [20] GunE11SR
+
+- [21] GunCrossvec
+
+- [22] Ammo556x45
+
+- [23] GunFSP9
+
+- [24] GunLogicer
+
+- [25] GrenadeHE
+
+- [26] GrenadeFlash
+
+- [27] Ammo44cal
+
+- [28] Ammo762x39
+
+- [29] Ammo9x19
+
+- [30] GunCOM18
+
+- [31] SCP018
+
+- [32] SCP268
+
+- [33] Adrenaline
+
+- [34] Painkillers
+
+- [35] Coin
+
+- [36] ArmorLight
+
+- [37] ArmorCombat
+
+- [38] ArmorHeavy
+
+- [39] GunRevolver
+
+- [40] GunAK
+
+- [41] GunShotgun
+
+- [42] SCP330
+
+- [43] SCP2176
+
+- [44] SCP244a
+
+- [45] SCP244b
+
+- [46] SCP1853
+
+- [47] ParticleDisruptor
+
+- [48] GunCom45
+
+- [49] SCP1576
+
+- [50] Jailbird
+
+- [51] AntiSCP207
+
+- [52] GunFRMG0
+
+- [53] GunA7
+
+- [54] Lantern
+
+- [55] SCP1344
+
+- [56] Snowball
+
+- [57] Coal
+
+- [58] SpecialCoal
+
+- [59] SCP1507Tape
+
+
+
+Alternatively, the ID of a CustomItem can be used.
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to drop items for.
+
+
+
+<item>
+
+  Required: YES
+
+  Type: ItemType
+
+  The item to drop.
+
+
+
+[amount]
+
+  Required: NO
+
+  Type: Int (Whole Number)
+
+  The amount to drop. Default: 1
+
+
+
++ EFFECT +
+
+Action for giving/removing player effects.
+
+Action type: Player
+
+Usage: EFFECT <MODE> <PLAYERS> <EFFECT> [INTENSITY] [DURATION]
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ADD' - Gives effect to players.
+
+    - 'REMOVE' - Removes effect from players.
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+<effect>
+
+  Required: YES
+
+  Type: EffectType
+
+  The effect to give or remove.
+
+
+
+[intensity]
+
+  Required: NO
+
+  Type: Int (Whole Number)
+
+  The intensity of the effect, between 0-255. Default: 1.
+
+
+
+[duration]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The duration of the effect, or no duration for a permanent effect.
+
+
+
++ EFFECTIMMUNITYRULE +
+
+Action for setting rules to apply immunity to effects to specific roles/teams/players on-spawn.
+
+Action type: Round Rule
+
+Usage: EFFECTIMMUNITYRULE <MODE> <TARGET> <EFFECT>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Rule to give effect immunity.
+
+    - 'REMOVE' - Removes a previously-established immunity.
+
+
+
+<target>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+<effect>
+
+  Required: YES
+
+  Type: EffectType
+
+  The effect give or remove immunity to.
+
+
+
++ EFFECTRULE +
+
+Action for setting rules to apply effects to specific roles/teams/players on-spawn.
+
+Action type: Round Rule
+
+Usage: EFFECTRULE <MODE> <TARGET> <EFFECT> [INTENSITY]
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Rule to give effects.
+
+    - 'REMOVE' - Removes a previously-established rule.
+
+
+
+<target>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The players to affect, or the RoleType/Team to give the effect.
+
+
+
+<effect>
+
+  Required: YES
+
+  Type: EffectType
+
+  The effect to give or remove.
+
+
+
+[intensity]
+
+  Required: NO
+
+  Type: Byte (Whole Number, 0-255)
+
+  The intensity of the effect, between 0-255. Defaults to 1
+
++ ELEVATOR +
+
+Controls map elevators.
+
+Action type: Map
+
+Usage: ELEVATOR <MODE> <ELEVATORS>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SEND' - Moves the elevator.
+
+    - 'LOCK' - Locks the elevator, preventing it from being used.
+
+    - 'UNLOCK' - Unlocks the previously-locked elevator, allowing it to be used again.
+
+
+
+<elevators>
+
+  Required: YES
+
+  Type: Lift[]
+
+  The elevators to affect.
+
+
+
++ ENABLE +
+
+Enables a previously disabled round feature.
+
+Action type: Round Rule
+
+Usage: ENABLE <KEY>
+
+
+
+The following keys contain functionality when used in DISABLE/ENABLE and DISABLEPLAYER/ENABLEPLAYER.
+
+
+
+- DOORS - Disables all door interactions.
+
+- DROPPING - Disables dropping and throwing items.
+
+- DYING - Prevents player(s) from dying.
+
+- ELEVATORS - Disables all elevator functionality.
+
+- ESCAPING - Prevents player(s) from escaping.
+
+- GENERATORS - Prevents player(s) from interacting with generators.
+
+- HAZARDS - Disables all hazard functionality.
+
+- HURTING - Prevents player(s) from taking damage.
+
+- ITEMPICKUPS - Disables all item pickup functionality.
+
+- LOCKERS - Disables all locker functionality.
+
+- MICROPICKUPS - Disables item pickup functionality only for Micro-HID drops.
+
+- PEDESTALS - Disables all pedestal functionality.
+
+- SCP049ATTACK - Disables SCP-049's primary attack.
+
+- SCP0492ATTACK - Disables SCP-049-2's primary attack.
+
+- SCP096ATTACK - Disables SCP-096's primary attack.
+
+- SCP106ATTACK - Disables SCP-106's primary attack.
+
+- SCP173ATTACK - Disables SCP-173's primary attack.
+
+- SCP330 - Disables all SCP-330 functionality.
+
+- SCP914 - Disables all SCP-914 functionality.
+
+- SCP939ATTACK - Disables SCP-939's primary attack.
+
+- SCP3114ATTACK - Disables SCP-3114's primary attack.
+
+- SCPALLABILITIES - Disables all SCP abilities.
+
+- SCPATTACK - Disables all SCP attacks.
+
+- SHOOTING - Disables all shooting functionality.
+
+- TESLAS - Disables all tesla functionality.
+
+- WARHEAD - Prevents player(s) from interacting with the warhead.
+
+- WORKSTATIONS - Disables all workstation functionality.
+
+- CUFFING - Disables cuffing.
+
+
+
+The following keys can ONLY be used in DISABLE and ENABLE. They cannot be tied to specific players.
+
+- NTFANNOUNCEMENT * - Disables NTF spawn announcements.
+
+- RESPAWNS - Prevents player(s) from respawning as Chaos/NTF.
+
+- SCPANNOUNCEMENT - Disables SCP termination announcements.
+
+
+
+
+
+
+
+Arguments:
+
+<key>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The key of the feature to enable. See documentation for a whole list of keys.
+
++ ENDIF +
+
+Removes the action ignoring status enabled by the IF action, if one exists.
+
+Action type: Logic
+
+Usage: ENDIF
+
+
+
+
+
++ ERROR +
+
+Creates an error message in the server console.
+
+Action type: Server
+
+Usage: ERROR <MESSAGE>
+
+
+
+
+
+Arguments:
+
+<message>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The message.
+
+
+
++ EVENT +
+
+Enables or disables an Exiled event for specified players.
+
+Action type: Round Rule
+
+Usage: EVENT <MODE> <PLAYERS> <EVENTNAME>
+
+
+
+This action allows you to enable or disable any player event that is deniable.
+
+
+
+Let's say you hate players flipping the coin and you want to disable this ability. How would you do it?
+
+
+
+1. Go to this web page: https://github.com/Exiled-Team/EXILED/blob/dev/Exiled.Events/Handlers/Player.cs
+
+2. On the right side you will find a window named 'Symbols' and inside it a search bar 'Filter symbols'.
+
+3. Search for 'coin' or 'flip'. First 2 results should be 'FlippingCoin' and 'OnFlippingCoin'. Click on 'FlippingCoin'.
+
+4. The highlighted portion is the name of the event.
+
+
+
+You can now use 'EVENT DISABLE * FlippingCoin', which will not allow anyone to flip their coin.
+
+
+
+BUT! There is a caveat; not every event can be disabled. How can I check if 'FlippingCoin' event can be disabled?
+
+
+
+1. To the left of the highlighted 'FlippingCoin' you will find '<FlippingCoinEventArgs>'. Click on it.
+
+2. You will see that the right window now shows definitions of it, click 'class FlippingCoinEventArgs'.
+
+3. A line similar to this should be highlighted: 'public class FlippingCoinEventArgs : IPlayerEvent, IDeniableEvent, IItemEvent'
+
+
+
+You see that 'IDeniableEvent' there? It means that you can enable and disable it. If it is not present then you can't enable and disable it.
+
+
+
+It's completely fine if this is too much for you, you can always join our discord server for support: discord.gg/3j54zBnbbD
+
+
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ENABLE' - Enables an event.
+
+    - 'DISABLE' - Disables an event.
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+<eventName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The event name to manage.
+
+
+
++ FASTCALL +
+
+Executes a provided script. Will NOT wait until called script finishes execution. Can provide arguments for the called script.
+
+Action type: Logic
+
+Usage: FASTCALL <SCRIPT> [ARGUMENTS]
+
+
+
+
+
+Arguments:
+
+<script>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The script to call.
+
+
+
+[arguments]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The arguments to provide for the called script. Can be empty. All arguments will be provided to the called script as {ARG1}, {ARG2} etc. and {ARGS}.
+
+
+
++ FASTHTTPPOST +
+
+Works the same as HTTPPOST, but does not create variables and does not yield the script execution until the request is finished.
+
+Action type: Miscellaneous
+
+Usage: FASTHTTPPOST <URL> <BODY>
+
+
+
+
+
+Arguments:
+
+<url>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The URL to send a POST request to.
+
+
+
+<body>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The body to send (JSON formatting).
+
++ FLIPIF +
+
+Flips the current IF action action block.
+
+Action type: Logic
+
+Usage: FLIPIF
+
+
+
+
+
++ GENERATORRULE +
+
+Modifies genrator behavior.
+
+Action type: Round Rule
+
+Usage: GENERATORRULE <MODE> <VALUE>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ACTIVATIONTIME' - The amount of time for generators to activate.
+
+    - 'DEACTIVATIONTIME' - The amount of time for generators to deactivate.
+
+    - 'LEVERDELAY' - The delay to change generator levers.
+
+    - 'INTERACTIONCOOLDOWN' - The cooldown for interacting with generators.
+
+
+
+<value>
+
+  Required: YES
+
+  Type: Int (Whole Number)
+
+  The value to set as the rule.
+
+
+
++ GENERATORS +
+
+Modifies all genrators.
+
+Action type: Map
+
+Usage: GENERATORS <MODE>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'OPEN' - Opens all generators.
+
+    - 'CLOSE' - Closes all generators.
+
+    - 'LOCK' - Locks all generators, requiring a keycard to use.
+
+    - 'UNLOCK' - Unlocks all generators, no longer requiring a keycard to use.
+
+    - 'OVERCHARGE' - Engages all generators, causing an overcharge.
+
+    - 'ACTIVATE' - Begins activating all generators.
+
+    - 'DEACTIVATE' - Deactivates all generators.
+
+
+
++ GIVECANDY +
+
+Gives the targeted players a candy.
+
+Action type: Item
+
+Usage: GIVECANDY <PLAYERS> <ITEM> [AMOUNT]
+
+
+
+A full list of valid Candy IDs (as of 18/02/2025 22:38) follows:
+
+- [1] Rainbow
+
+- [2] Yellow
+
+- [3] Purple
+
+- [4] Red
+
+- [5] Green
+
+- [6] Blue
+
+- [7] Pink
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to give the candy to.
+
+
+
+<item>
+
+  Required: YES
+
+  Type: CandyKindID
+
+  The candy to give.
+
+
+
+[amount]
+
+  Required: NO
+
+  Type: Int (Whole Number)
+
+  The amount to give. Default: 1
+
+
+
++ GIVELOADOUT +
+
+Grants a class loadout to the targeted players.
+
+Action type: Item
+
+Usage: GIVELOADOUT <PLAYERS> <CLASS>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to grant the loadout to.
+
+
+
+<class>
+
+  Required: YES
+
+  Type: RoleTypeId (ID / Number)
+
+  The class of which the loadout will be granted.
+
+
+
++ GLOBAL +
+
+Saves a new variable. Saved variables can be used in ANY script, and are reset when the round ends.
+
+Action type: Variable
+
+Usage: GLOBAL <VARIABLENAME> [VALUE]
+
+
+
+
+
+Arguments:
+
+<variableName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name of the new variable. Braces will be added automatically if not provided.
+
+
+
+[value]
+
+  Required: NO
+
+  Type: Any Type
+
+  The value to store. Math is supported.
+
+
+
++ GLOBALPLAYERVAR +
+
+Allows manipulation of player variables.
+
+Action type: Variable
+
+Usage: GLOBALPLAYERVAR <MODE> <VARIABLENAME> [PLAYERS]
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Saves a new player variable.
+
+    - 'ADD' - Adds player(s) to an established player variable. If a given variable doesn't exist, a new one will be created.
+
+    - 'REMOVE' - Removes player(s) from an established player variable.
+
+
+
+<variableName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name of the variable.
+
+
+
+[players]
+
+  Required: NO
+
+  Type: Player List
+
+  The players to set/add/remove.
+
+
+
++ GODMODE +
+
+Grants or removes godmode to specified players.
+
+Action type: Player
+
+Usage: GODMODE <PLAYERS> <MODE>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  Players to change godmode state for.
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: Boolean (TRUE/FALSE)
+
+  Godmode state to grant.
+
+
+
++ GOTO +
+
+Moves to the provided label. Use 'START' to go to the start of the script.
+
+Action type: Logic
+
+Usage: GOTO <LABEL>
+
+
+
+
+
+Arguments:
+
+<label>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The label to move to.
+
+
+
++ GRENADE +
+
+Spawns a fused grenade at the provided XYZ coordinates.
+
+Action type: Map
+
+Usage: GRENADE <X> <Y> <Z> <FUSETIMESECONDS> [SCALE] [PLAYER]
+
+
+
+
+
+Arguments:
+
+<x>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The X coordinate.
+
+
+
+<y>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The Y coordinate.
+
+
+
+<z>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The Z coordinate.
+
+
+
+<fuseTimeSeconds>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  Fuse time for the grenade.
+
+
+
+[scale]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The scale of the granade. Default: 1.
+
+
+
+[player]
+
+  Required: NO
+
+  Type: Player Variable
+
+  The player who will be blamed for a kill. Default: Dedicated server.
+
+
+
++ HELP +
+
+Gets information about a command or a variable, or lists all commands or variables.
+
+Action type: Miscellaneous
+
+Usage: HELP [INPUT]
+
+
+
+
+
+Arguments:
+
+[input]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The name of the action/variable, "LIST" for all actions, or "LISTVAR" for all variables. Case-sensitive.
+
+
+
++ HINT +
+
+Broadcasts a hint to specific player(s).
+
+Action type: Broadcast
+
+Usage: HINT <PLAYERS> <DURATIONSECONDS> <MESSAGE>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to show the hint for.
+
+
+
+<durationSeconds>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The duration of the hint.
+
+
+
+<message>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The hint content.
+
+
+
++ HP +
+
+Modifies HP of the targeted players.
+
+Action type: Health
+
+Usage: HP <PLAYERS> <HEALTH>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+<health>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The amount of health to set the player to.
+
+
+
++ HTTPGET +
+
+Sends an HTTP GET request to a website.
+
+Action type: Miscellaneous
+
+Usage: HTTPGET <URL>
+
+
+
+This action pauses the script until the request is complete. Upon completion, three variables will be created:
+
+- {HTTPSUCCESS} - True or false, depending on if the website returned HTTP Code 200.
+
+- {HTTPCODE} - The status code response.
+
+- {HTTPRESULT} - The body of information returned from the website.
+
+
+
+These variables are created as per-script variables, meaning they can only be used in the script that created them. If these variables already exist (such as a prior HTTPGET/HTTPPOST execution), they will be overwritten with new values.
+
+
+
+
+
+Arguments:
+
+<url>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The URL to send a GET request to.
+
+
+
++ HTTPPOST +
+
+Sends an HTTP POST request to a website.
+
+Action type: Miscellaneous
+
+Usage: HTTPPOST <URL> <BODY>
+
+
+
+This action pauses the script until the request is complete. Upon completion, three variables will be created:
+
+- {HTTPSUCCESS} - True or false, depending on if the website returned HTTP Code 200.
+
+- {HTTPCODE} - The status code response.
+
+- {HTTPRESULT} - The body of information returned from the website.
+
+
+
+These variables are created as per-script variables, meaning they can only be used in the script that created them. If these variables already exist (such as a prior HTTPGET/HTTPPOST execution), they will be overwritten with new values.
+
+
+
+
+
+Arguments:
+
+<url>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The URL to send a POST request to.
+
+
+
+<body>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The body to send (JSON formatting).
+
+
+
++ IF +
+
+If the condition is FALSE, all actions will be ignored until ENDIF action is encountered. If the condition is TRUE, script will continue executing normally.
+
+Action type: Logic
+
+Usage: IF <CONDITION>
+
+
+
+
+
+Arguments:
+
+<condition>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The condition to check. Math is supported.
+
+
+
++ INFECTRULE +
+
+Creates a new infection rule.
+
+Action type: Round Rule
+
+Usage: INFECTRULE <OLDROLE> <NEWROLE> [MOVEPLAYER]
+
+
+
+
+
+Arguments:
+
+<oldRole>
+
+  Required: YES
+
+  Type: RoleTypeId (ID / Number)
+
+  The role a player must die as to be infected.
+
+
+
+<newRole>
+
+  Required: YES
+
+  Type: RoleTypeId (ID / Number)
+
+  The role a player will become.
+
+
+
+[movePlayer]
+
+  Required: NO
+
+  Type: Boolean (TRUE/FALSE)
+
+  TRUE if the player should be moved to their death position, FALSE (or leave empty) to leave at spawn.
+
+
+
++ ITEM +
+
+Gives or removes items from players.
+
+Action type: Item
+
+Usage: ITEM <MODE> <PLAYERS> <ITEM> [AMOUNT]
+
+
+
+A full list of valid Item IDs (as of 18/02/2025 22:38) follows:
+
+- [0] KeycardJanitor
+
+- [1] KeycardScientist
+
+- [2] KeycardResearchCoordinator
+
+- [3] KeycardZoneManager
+
+- [4] KeycardGuard
+
+- [5] KeycardMTFPrivate
+
+- [6] KeycardContainmentEngineer
+
+- [7] KeycardMTFOperative
+
+- [8] KeycardMTFCaptain
+
+- [9] KeycardFacilityManager
+
+- [10] KeycardChaosInsurgency
+
+- [11] KeycardO5
+
+- [12] Radio
+
+- [13] GunCOM15
+
+- [14] Medkit
+
+- [15] Flashlight
+
+- [16] MicroHID
+
+- [17] SCP500
+
+- [18] SCP207
+
+- [19] Ammo12gauge
+
+- [20] GunE11SR
+
+- [21] GunCrossvec
+
+- [22] Ammo556x45
+
+- [23] GunFSP9
+
+- [24] GunLogicer
+
+- [25] GrenadeHE
+
+- [26] GrenadeFlash
+
+- [27] Ammo44cal
+
+- [28] Ammo762x39
+
+- [29] Ammo9x19
+
+- [30] GunCOM18
+
+- [31] SCP018
+
+- [32] SCP268
+
+- [33] Adrenaline
+
+- [34] Painkillers
+
+- [35] Coin
+
+- [36] ArmorLight
+
+- [37] ArmorCombat
+
+- [38] ArmorHeavy
+
+- [39] GunRevolver
+
+- [40] GunAK
+
+- [41] GunShotgun
+
+- [42] SCP330
+
+- [43] SCP2176
+
+- [44] SCP244a
+
+- [45] SCP244b
+
+- [46] SCP1853
+
+- [47] ParticleDisruptor
+
+- [48] GunCom45
+
+- [49] SCP1576
+
+- [50] Jailbird
+
+- [51] AntiSCP207
+
+- [52] GunFRMG0
+
+- [53] GunA7
+
+- [54] Lantern
+
+- [55] SCP1344
+
+- [56] Snowball
+
+- [57] Coal
+
+- [58] SpecialCoal
+
+- [59] SCP1507Tape
+
+
+
+Alternatively, the ID of a CustomItem can be used.
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ADD' - Add an item to the player's inventory.
+
+    - 'REMOVE' - Remove an item from the player's inventory.
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+<item>
+
+  Required: YES
+
+  Type: ItemType
+
+  The item to add/remove.
+
+
+
+[amount]
+
+  Required: NO
+
+  Type: Int (Whole Number)
+
+  The amount of items to add/remove. Default: 1
+
+
+
++ KICK +
+
+Kicks specified players.
+
+Action type: Player
+
+Usage: KICK <PLAYERS> <REASON>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  Players to kick.
+
+
+
+<reason>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  Kick reason.
+
+
+
++ KILL +
+
+Kills the targeted players.
+
+Action type: Health
+
+Usage: KILL <PLAYERS> [DAMAGETYPE]
+
+
+
+A base-game DamageType may be used to provide a base-game death message. Alternatively, a custom message may be used instead of a DamageType.
+
+A full list of valid DamageType IDs (as of 18/02/2025 22:38) follows:
+
+- [0] Unknown
+
+- [1] Falldown
+
+- [2] Warhead
+
+- [3] Decontamination
+
+- [4] Asphyxiation
+
+- [5] Poison
+
+- [6] Bleeding
+
+- [7] Firearm
+
+- [8] MicroHid
+
+- [9] Tesla
+
+- [10] Scp
+
+- [11] Explosion
+
+- [12] Scp018
+
+- [13] Scp207
+
+- [14] Recontainment
+
+- [15] Crushed
+
+- [16] FemurBreaker
+
+- [17] PocketDimension
+
+- [18] FriendlyFireDetector
+
+- [19] SeveredHands
+
+- [20] SeveredEyes
+
+- [21] Custom
+
+- [22] Scp049
+
+- [23] Scp096
+
+- [24] Scp173
+
+- [25] Scp939
+
+- [26] Scp0492
+
+- [27] Scp106
+
+- [28] Crossvec
+
+- [29] Logicer
+
+- [30] Revolver
+
+- [31] Shotgun
+
+- [32] AK
+
+- [33] Com15
+
+- [34] Com18
+
+- [35] Fsp9
+
+- [36] E11Sr
+
+- [37] Hypothermia
+
+- [38] ParticleDisruptor
+
+- [39] CardiacArrest
+
+- [40] Com45
+
+- [41] Jailbird
+
+- [42] Frmg0
+
+- [43] A7
+
+- [44] Scp3114
+
+- [45] Strangled
+
+- [46] Marshmallow
+
+- [47] Scp1507
+
+- [48] Scp956
+
+- [49] SnowBall
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to kill.
+
+
+
+[damageType]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The DamageType to apply, 'VAPORIZE' to vaporize the body, or a custom death message. Default: Unknown
+
+
+
++ LIGHTCOLOR +
+
+Sets the lights in the provided room(s) to the given RGB color.
+
+Action type: Lights
+
+Usage: LIGHTCOLOR <MODE> <ROOM> [RED] [GREEN] [BLUE]
+
+
+
+The following inputs can be used to target rooms:
+
+- '*'/'ALL' - Targets ALL rooms
+
+- 'LightContainment' - Targets light containment rooms
+
+- 'HeavyContainment' - Targets heavy containment rooms
+
+- 'Entrance' - Targets entrance rooms
+
+
+
+Alternatively, a Room ID can be used. A full list of valid Room IDs (as of 18/02/2025 22:38) follows:
+
+- [1] LczArmory
+
+- [2] LczCurve
+
+- [3] LczStraight
+
+- [4] Lcz914
+
+- [5] LczCrossing
+
+- [6] LczTCross
+
+- [7] LczCafe
+
+- [8] LczPlants
+
+- [9] LczToilets
+
+- [10] LczAirlock
+
+- [11] Lcz173
+
+- [12] LczClassDSpawn
+
+- [13] LczCheckpointB
+
+- [14] LczGlassBox
+
+- [15] LczCheckpointA
+
+- [16] Hcz079
+
+- [17] HczEzCheckpointA
+
+- [18] HczEzCheckpointB
+
+- [19] HczArmory
+
+- [20] Hcz939
+
+- [21] HczHid
+
+- [22] Hcz049
+
+- [23] HczCrossing
+
+- [24] Hcz106
+
+- [25] HczNuke
+
+- [26] HczTesla
+
+- [27] HczCurve
+
+- [28] Hcz096
+
+- [29] EzVent
+
+- [30] EzIntercom
+
+- [31] EzGateA
+
+- [32] EzDownstairsPcs
+
+- [33] EzCurve
+
+- [34] EzPcs
+
+- [35] EzCrossing
+
+- [36] EzCollapsedTunnel
+
+- [37] EzConference
+
+- [38] EzChef
+
+- [39] EzStraight
+
+- [40] EzStraightColumn
+
+- [41] EzCafeteria
+
+- [42] EzUpstairsPcs
+
+- [43] EzGateB
+
+- [44] EzShelter
+
+- [45] Pocket
+
+- [46] Surface
+
+- [47] HczStraight
+
+- [48] EzTCross
+
+- [49] Lcz330
+
+- [50] EzCheckpointHallwayA
+
+- [51] EzCheckpointHallwayB
+
+- [52] HczTestRoom
+
+- [53] HczElevatorA
+
+- [54] HczElevatorB
+
+- [55] HczCrossRoomWater
+
+- [56] HczCornerDeep
+
+- [57] HczIntersectionJunk
+
+- [58] HczIntersection
+
+- [59] HczStraightC
+
+- [60] HczStraightPipeRoom
+
+- [61] HczStraightVariant
+
+- [62] EzSmallrooms
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Sets the light color. Red, Green and Blue values need to be provided when using.
+
+    - 'RESET' - Resets the light color.
+
+
+
+<room>
+
+  Required: YES
+
+  Type: Room List
+
+  The room to change the color of.
+
+
+
+[red]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The red component of the color.
+
+
+
+[green]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The green component of the color.
+
+
+
+[blue]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The blue component of the color.
+
+
+
++ LIGHTSOFF +
+
+Turns all the lights off for a given period of time.
+
+Action type: Lights
+
+Usage: LIGHTSOFF <ROOM> <DURATION>
+
+
+
+The following inputs can be used to target rooms:
+
+- '*'/'ALL' - Targets ALL rooms
+
+- 'LightContainment' - Targets light containment rooms
+
+- 'HeavyContainment' - Targets heavy containment rooms
+
+- 'Entrance' - Targets entrance rooms
+
+
+
+Alternatively, a Room ID can be used. A full list of valid Room IDs (as of 18/02/2025 22:38) follows:
+
+- [1] LczArmory
+
+- [2] LczCurve
+
+- [3] LczStraight
+
+- [4] Lcz914
+
+- [5] LczCrossing
+
+- [6] LczTCross
+
+- [7] LczCafe
+
+- [8] LczPlants
+
+- [9] LczToilets
+
+- [10] LczAirlock
+
+- [11] Lcz173
+
+- [12] LczClassDSpawn
+
+- [13] LczCheckpointB
+
+- [14] LczGlassBox
+
+- [15] LczCheckpointA
+
+- [16] Hcz079
+
+- [17] HczEzCheckpointA
+
+- [18] HczEzCheckpointB
+
+- [19] HczArmory
+
+- [20] Hcz939
+
+- [21] HczHid
+
+- [22] Hcz049
+
+- [23] HczCrossing
+
+- [24] Hcz106
+
+- [25] HczNuke
+
+- [26] HczTesla
+
+- [27] HczCurve
+
+- [28] Hcz096
+
+- [29] EzVent
+
+- [30] EzIntercom
+
+- [31] EzGateA
+
+- [32] EzDownstairsPcs
+
+- [33] EzCurve
+
+- [34] EzPcs
+
+- [35] EzCrossing
+
+- [36] EzCollapsedTunnel
+
+- [37] EzConference
+
+- [38] EzChef
+
+- [39] EzStraight
+
+- [40] EzStraightColumn
+
+- [41] EzCafeteria
+
+- [42] EzUpstairsPcs
+
+- [43] EzGateB
+
+- [44] EzShelter
+
+- [45] Pocket
+
+- [46] Surface
+
+- [47] HczStraight
+
+- [48] EzTCross
+
+- [49] Lcz330
+
+- [50] EzCheckpointHallwayA
+
+- [51] EzCheckpointHallwayB
+
+- [52] HczTestRoom
+
+- [53] HczElevatorA
+
+- [54] HczElevatorB
+
+- [55] HczCrossRoomWater
+
+- [56] HczCornerDeep
+
+- [57] HczIntersectionJunk
+
+- [58] HczIntersection
+
+- [59] HczStraightC
+
+- [60] HczStraightPipeRoom
+
+- [61] HczStraightVariant
+
+- [62] EzSmallrooms
+
+
+
+
+
+Arguments:
+
+<room>
+
+  Required: YES
+
+  Type: Room List
+
+  The room to flicker the lights off.
+
+
+
+<duration>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The duration of the lights out.
+
+
+
++ LOBBY +
+
+Set server's lobbylock.
+
+Action type: Round
+
+Usage: LOBBY <MODE>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'LOCK'
+
+    - 'UNLOCK'
+
+
+
++ LOCAL +
+
+Saves a new variable. Saved variables can be used in THIS script only, and are reset when the round ends.
+
+Action type: Variable
+
+Usage: LOCAL <VARIABLENAME> [VALUE]
+
+
+
+
+
+Arguments:
+
+<variableName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name of the new variable. Braces will be added automatically if not provided.
+
+
+
+[value]
+
+  Required: NO
+
+  Type: Any Type
+
+  The value to store. Math is supported.
+
+
+
++ LOCALPLAYERVAR +
+
+Allows manipulation of player variables accessible in this script only.
+
+Action type: Variable
+
+Usage: LOCALPLAYERVAR <MODE> <VARIABLENAME> [PLAYERS]
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Saves a new player variable.
+
+    - 'ADD' - Adds player(s) to an established player variable. If a given variable doesn't exist, a new one will be created.
+
+    - 'REMOVE' - Removes player(s) from an established player variable.
+
+
+
+<variableName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name of the variable.
+
+
+
+[players]
+
+  Required: NO
+
+  Type: Player List
+
+  The players to set/add/remove.
+
+
+
++ LOG +
+
+Creates a server console log.
+
+Action type: Server
+
+Usage: LOG [MESSAGE]
+
+
+
+
+
+Arguments:
+
+[message]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The message.
+
+
+
++ MAXHP +
+
+Modifies maximum HP of the targeted players.
+
+Action type: Health
+
+Usage: MAXHP <PLAYERS> <MAXHEALTH>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+<maxhealth>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The amount of max health to set
+
+
+
++ MUTE +
+
+Mutes specified players.
+
+Action type: Player
+
+Usage: MUTE <MODE> <PLAYERS> <LONGTERM>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Mute player(s).
+
+    - 'REMOVE' - Unmute player(s).
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  Players to change mute status for.
+
+
+
+<longterm>
+
+  Required: YES
+
+  Type: Boolean (TRUE/FALSE)
+
+  If TRUE, player will be muted even after rejoining.
+
+
+
++ NOCLIP +
+
+Grants or removes noclip to specified players.
+
+Action type: Player
+
+Usage: NOCLIP <PLAYERS> <MODE>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  Players to change noclip state.
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: Boolean (TRUE/FALSE)
+
+  Noclip mode.
+
+
+
++ PLAYERDATA +
+
+Allows manipulation of variables specific to players.
+
+Action type: Variable
+
+Usage: PLAYERDATA <MODE> <PLAYERS> <KEYNAME> [VALUE]
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Sets the player data.
+
+    - 'DELETE' - Deletes the player data.
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to affect.
+
+
+
+<keyName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name of the key.
+
+
+
+[value]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The new value of the key. Not used when using mode 'DELETE'.
+
+
+
++ PLUGIN +
+
+Enables/disables a specific plugin.
+
+Action type: Server
+
+Usage: PLUGIN <MODE> <PLUGIN>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ENABLE' - Enables a plugin. Requires the name of the plugin DLL.
+
+    - 'DISABLE' - Disables a previously-enabled plugin. Requires the name of the plugin.
+
+
+
+<plugin>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The plugin to toggle.
+
+
+
++ PRINT +
+
+Creates a log message in the console the script was executed from.
+
+Action type: Server
+
+Usage: PRINT [MESSAGE]
+
+
+
+
+
+Arguments:
+
+[message]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The message.
+
+
+
++ PRINTPLAYER +
+
+Prints a message in the specified players' console.
+
+Action type: Player
+
+Usage: PRINTPLAYER <PLAYERS> <MESSAGE>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  Players to affect.
+
+
+
+<message>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The message content.
+
+
+
++ RADIORANGE +
+
+Modifies radio range settings.
+
+Action type: Item
+
+Usage: RADIORANGE <MODE> <PLAYERS> <RANGE>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SET' - Only sets the range of the radio.
+
+    - 'LOCK' - Sets the range and locks its value so it cannot be changed.
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to change the radio settings of.
+
+
+
+<range>
+
+  Required: YES
+
+  Type: RadioRange
+
+  The new radio range. Must be: Short, Medium, Long, or Ultra
+
+
+
+Examples:
+
+
+
+=== Case 1 ===
+
+Locks all Class-D to only be able to use Short range. Does not affect players that spawn after the command is executed.
+
+
+
+```
+
+RADIORANGE LOCK {CLASSD} Short
+
+```
+
+
+
+=== Case 2 ===
+
+Set all guard radios to be Ultra by default. Does not affect players that spawn after the command is executed.
+
+
+
+```
+
+RADIORANGE SET {GUARDS} Ultra
+
+```
+
+
+
+
+
++ RAGDOLL +
+
+Spawns a ragdoll at the provided XYZ coordinates.
+
+Action type: Map
+
+Usage: RAGDOLL <X> <Y> <Z> <ROLE> <NAME> <DEATHREASON>
+
+
+
+
+
+Arguments:
+
+<x>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The X coordinate.
+
+
+
+<y>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The Y coordinate.
+
+
+
+<z>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The Z coordinate.
+
+
+
+<role>
+
+  Required: YES
+
+  Type: RoleTypeId (ID / Number)
+
+  Character of the ragdoll.
+
+
+
+<name>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  Name of the ragdoll.
+
+
+
+<deathReason>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The death reason.
+
+
+
++ RESKIN +
+
+Sets the appearance of all players to the given role. Does NOT actually change their role -- only their appearance!
+
+Action type: Player
+
+Usage: RESKIN <PLAYERS> <ROLE> [TARGETPLAYERS]
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to set the role as.
+
+
+
+<role>
+
+  Required: YES
+
+  Type: RoleTypeId (ID / Number)
+
+  The role to set the appearance of all the players as.
+
+
+
+[targetPlayers]
+
+  Required: NO
+
+  Type: Player List
+
+  The players that will see reskin taking place. Do not provide this variable for all players to see the reskin.
+
+
+
++ RETURN +
+
+Stops the script and returns variables to the original caller of the script.
+
+Action type: Logic
+
+Usage: RETURN <VARIABLES>
+
+
+
+
+
+Arguments:
+
+<variables>
+
+  Required: YES
+
+  Type: Any Type
+
+  The variables to return. These variables will be copied to the original caller with the same name and value.
+
+
+
++ ROUND +
+
+Manages the round and its settings.
+
+Action type: Round
+
+Usage: ROUND <MODE>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'START' - Starts the round.
+
+    - 'END' - Ends the round
+
+    - 'LOCK' - Locks the round.
+
+    - 'UNLOCK' - Unlocks the round
+
+    - 'RESTART' - Restarts the round.
+
+
+
++ SERVERNAME +
+
+Sets this server's name.
+
+Action type: Server
+
+Usage: SERVERNAME <NAME>
+
+
+
+
+
+Arguments:
+
+<name>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name to apply.
+
+
+
++ SETGROUP +
+
+Sets a player's group. Can remove the group of needed.
+
+Action type: Player
+
+Usage: SETGROUP <PLAYERS> <GROUP>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to set the group for.
+
+
+
+<group>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The group to set. Use 'NONE' to remove the group.
+
+
+
++ SETNAME +
+
+Sets a player's name to the provided string.
+
+Action type: Player
+
+Usage: SETNAME <PLAYERS> <NAME>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to set the name for.
+
+
+
+<name>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name to set.
+
+
+
++ SETROLE +
+
+Sets all players to the given role with advanced settings.
+
+Action type: Player
+
+Usage: SETROLE <PLAYERS> <ROLE> [SPAWNPOINT] [INVENTORY]
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to set the role as.
+
+
+
+<role>
+
+  Required: YES
+
+  Type: RoleTypeId (ID / Number)
+
+  The role to set all the players as.
+
+
+
+[spawnpoint]
+
+  Required: NO
+
+  Type: Boolean (TRUE/FALSE)
+
+  Use spawnpoint? default: true
+
+
+
+[inventory]
+
+  Required: NO
+
+  Type: Boolean (TRUE/FALSE)
+
+  Use default inventory? default: true
+
+
+
++ SIZE +
+
+Sets all players to the given size.
+
+Action type: Player
+
+Usage: SIZE <PLAYERS> <X> <Y> <Z>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to rescale.
+
+
+
+<x>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The X size to put on the player.
+
+
+
+<y>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The Y size to put on the player.
+
+
+
+<z>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The Z size to put on the player.
+
+
+
++ SPAWNRULE +
+
+Creates a new spawn rule, modifying how players spawn at the start of the game. MUST BE USED BEFORE THE ROUND STARTS.
+
+Action type: Round Rule
+
+Usage: SPAWNRULE <ROLE> [MAX]
+
+
+
+
+
+Arguments:
+
+<role>
+
+  Required: YES
+
+  Type: RoleTypeId (ID / Number)
+
+  The role to create the rule for.
+
+
+
+[max]
+
+  Required: NO
+
+  Type: Int (Whole Number)
+
+  The maximum amount of players to spawn as this role. If not provided, EVERY player who does not become a role with a different spawn rule will become this role.
+
+
+
++ STAMINA +
+
+Modifies stamina of specified players.
+
+Action type: Player
+
+Usage: STAMINA <MODE> <PLAYERS> <AMOUNTPERCENT>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ADD' - Adds stamina for players.
+
+    - 'SET' - Sets stamina for players.
+
+    - 'REMOVE' - Removes stamina from players.
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  Players to affect.
+
+
+
+<amountPercent>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The amount of stamina percentage to add/set/remove.
+
+
+
++ STOP +
+
+Stops script execution.
+
+Action type: Logic
+
+Usage: STOP [SCRIPTNAME]
+
+
+
+
+
+Arguments:
+
+[scriptName]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  Leave empty to stop this script. Provide a script name to stop a specific script or use '*' to stop all scripts EXCEPT this script.
+
+
+
++ STORE +
+
+Saves variables to long-term storage (.txt file) in the specified storage folder.
+
+Action type: Variable
+
+Usage: STORE <MODE> <VARIABLE>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'LITERAL' - Saves the value as-is.
+
+    - 'PLAYER' - Saves player(s).
+
+
+
+<variable>
+
+  Required: YES
+
+  Type: Variable
+
+  The variable to save.
+
+
+
++ TEMP +
+
+Saves a new variable with a name of '{@}'. If a provided argument is ONLY a player variable, then it will be copied. Else it will saved as a literal variable and math operations will be performed.
+
+Action type: Variable
+
+Usage: TEMP <VALUE>
+
+
+
+
+
+Arguments:
+
+<value>
+
+  Required: YES
+
+  Type: Any Type
+
+  The value to store. Can be a player variable. Math is supported (when applicable).
+
+
+
++ TESLA +
+
+Modifies tesla gates.
+
+Action type: Map
+
+Usage: TESLA <MODE> [TARGET] [DURATION]
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'PLAYERS' - Disables tesla gates for specific players.
+
+    - 'ROLETYPE' - Disables tesla gates for a specific role.
+
+    - 'DISABLE' - Disables tesla gates entirely.
+
+    - 'ENABLE' - Enables tesla gates after previously disabling them.
+
+
+
+[target]
+
+  Required: NO
+
+  Type: Any Type
+
+  The targets. Different type based on the mode.
+
+PLAYERS: A list of players.
+
+ROLETYPE: A valid RoleType (eg. ClassD, Scp173, etc)
+
+DISABLE & ENABLE: None
+
+
+
+[duration]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The time before reversing the effect.
+
+
+
+Examples:
+
+
+
+=== Case 1 ===
+
+Disable tesla gates entirely for 10 seconds.
+
+
+
+```
+
+TELSA DISABLE 10
+
+```
+
+
+
+=== Case 2 ===
+
+Disable tesla gate for facility guards.
+
+
+
+```
+
+TESLA ROLETYPE FacilityGuard
+
+```
+
+
+
+
+
++ TICKET +
+
+Modifies tickets.
+
+Action type: Round
+
+Usage: TICKET <MODE> <TEAM> <AMOUNT>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ADD' - Adds tickets to a team.
+
+    - 'REMOVE' - Removes tickets from a team.
+
+
+
+<team>
+
+  Required: YES
+
+  Type: Faction type (ID / Number)
+
+  The spawn team (ChaosInsurgency or NineTailedFox).
+
+
+
+<amount>
+
+  Required: YES
+
+  Type: Int (Whole Number)
+
+  The amount to apply.
+
+
+
++ TPDOOR +
+
+Teleports players to the specified door.
+
+Action type: Teleportation
+
+Usage: TPDOOR <PLAYERS> <DOOR>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to teleport
+
+
+
+<door>
+
+  Required: YES
+
+  Type: Door List
+
+  The door type to teleport to.
+
+
+
++ TPPLAYER +
+
+Teleports players to another (only one!) player.
+
+Action type: Teleportation
+
+Usage: TPPLAYER <PLAYERS> <TARGETPLAYER>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to teleport
+
+
+
+<targetPlayer>
+
+  Required: YES
+
+  Type: Player
+
+  The player to teleport to.
+
+
+
++ TPROOM +
+
+Teleports players to the specified room center.
+
+Action type: Teleportation
+
+Usage: TPROOM <PLAYERS> <ROOM>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to teleport
+
+
+
+<room>
+
+  Required: YES
+
+  Type: Room List
+
+  The room to teleport to. Alternatively, a zone can be provided to teleport players to a random room in the zone (random for each player). Do NOT use Scp173 room!!!
+
+
+
++ TPSPAWN +
+
+Teleports players to the specified SpawnLocationType.
+
+Action type: Teleportation
+
+Usage: TPSPAWN <PLAYERS> <SPAWN>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to teleport
+
+
+
+<spawn>
+
+  Required: YES
+
+  Type: SpawnLocationType
+
+  The spawn to teleport to.
+
+
+
++ TPX +
+
+Teleports players to the specified X, Y, Z coordinates.
+
+Action type: Teleportation
+
+Usage: TPX <PLAYERS> <X> <Y> <Z>
+
+
+
+
+
+Arguments:
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to teleport
+
+
+
+<X>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The X-coordinate to teleport to.
+
+
+
+<Y>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The Y-coordinate to teleport to.
+
+
+
+<Z>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The Z-coordinate to teleport to.
+
+
+
++ TRIGGER +
+
+Triggers a custom event, running scripts subscribed to that event.
+
+Action type: Logic
+
+Usage: TRIGGER <EVENT>
+
+
+
+
+
+Arguments:
+
+<event>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  Custom event name. This does not trigger Exiled events.
+
+
+
++ WAIT +
+
+Yields execution of the script.
+
+Action type: Yielding
+
+Usage: WAIT <MODE> <VALUE>
+
+
+
+
+
+Arguments:
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'SEC' - 'value' argument will expect amout of seconds to wait for.
+
+    - 'MIL' - 'value' argument will expect amout of miliseconds to wait for.
+
+    - 'UNTIL' - 'value argument will expect a condition. Will yield until said condition evaluates to TRUE.
+
+
+
+<value>
+
+  Required: YES
+
+  Type: Any Type
+
+  The value. Math is supported.
+
+
+
++ WARHEAD +
+
+Forces a specific warhead action.
+
+Action type: Map
+
+Usage: WARHEAD <ACTION>
+
+
+
+
+
+Arguments:
+
+<action>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The action to use.
+
+  Valid options for this argument:
+
+    - 'START' - Starts the warhead.
+
+    - 'STOP' - Stops the warhead.
+
+    - 'LOCK' - Prevents the warhead from being enabled.
+
+    - 'UNLOCK' - Allows the warhead to be enabled again.
+
+    - 'DETONATE' - Immediately detonates the warhead.
+
+    - 'BLASTDOORS' - Closes the surface blast doors on top of the elevators. Doesn't start or detonate the warhead.
+
+    - 'ARM' - Arms the warhead (switches lever to ON).
+
+    - 'DISARM' - Disarms the warhead (switches lever to OFF).
+
+    - 'OPEN' - Opens the keycard panel on the surface.
+
+    - 'CLOSE' - Closes the keycard panel on the surface.
+
+    - 'SHAKE' - Imitates an explosion without killing anyone.
+
+
+
+=== ENUM ===
+
+Name: CandyKindID
+
+The list of valid in-game SCP-330 candies.
+
+
+
+Options:
+
+0 - None
+
+1 - Rainbow
+
+2 - Yellow
+
+3 - Purple
+
+4 - Red
+
+5 - Green
+
+6 - Blue
+
+7 - Pink
+
+
+
+=== ENUM ===
+
+Name: DamageType
+
+The list of valid in-game damage types.
+
+
+
+Options:
+
+0 - Unknown
+
+1 - Falldown
+
+2 - Warhead
+
+3 - Decontamination
+
+4 - Asphyxiation
+
+5 - Poison
+
+6 - Bleeding
+
+7 - Firearm
+
+8 - MicroHid
+
+9 - Tesla
+
+10 - Scp
+
+11 - Explosion
+
+12 - Scp018
+
+13 - Scp207
+
+14 - Recontainment
+
+15 - Crushed
+
+16 - FemurBreaker
+
+17 - PocketDimension
+
+18 - FriendlyFireDetector
+
+19 - SeveredHands
+
+20 - SeveredEyes
+
+21 - Custom
+
+22 - Scp049
+
+23 - Scp096
+
+24 - Scp173
+
+25 - Scp939
+
+26 - Scp0492
+
+27 - Scp106
+
+28 - Crossvec
+
+29 - Logicer
+
+30 - Revolver
+
+31 - Shotgun
+
+32 - AK
+
+33 - Com15
+
+34 - Com18
+
+35 - Fsp9
+
+36 - E11Sr
+
+37 - Hypothermia
+
+38 - ParticleDisruptor
+
+39 - CardiacArrest
+
+40 - Com45
+
+41 - Jailbird
+
+42 - Frmg0
+
+43 - A7
+
+44 - Scp3114
+
+45 - Strangled
+
+46 - Marshmallow
+
+47 - Scp1507
+
+48 - Scp956
+
+49 - SnowBall
+
+
+
+=== ENUM ===
+
+Name: DoorType
+
+The list of valid in-game door types.
+
+
+
+Options:
+
+0 - UnknownDoor
+
+1 - Scp914Door
+
+2 - GR18Inner
+
+3 - Scp049Gate
+
+4 - Scp049Armory
+
+5 - Scp079First
+
+6 - Scp079Second
+
+7 - Scp096
+
+8 - Scp079Armory
+
+9 - Scp106Primary
+
+10 - Scp106Secondary
+
+11 - Scp173Gate
+
+12 - Scp173Connector
+
+13 - Scp173Armory
+
+14 - Scp173Bottom
+
+15 - GR18Gate
+
+16 - Scp914Gate
+
+17 - Scp939Cryo
+
+18 - CheckpointLczA
+
+19 - CheckpointLczB
+
+20 - EntranceDoor
+
+21 - EscapePrimary
+
+22 - EscapeSecondary
+
+23 - GateA
+
+24 - GateB
+
+25 - HczArmory
+
+26 - HeavyContainmentDoor
+
+27 - HeavyBulkDoor
+
+28 - HIDChamber
+
+29 - HIDUpper
+
+30 - HIDLower
+
+31 - Intercom
+
+32 - LczArmory
+
+33 - LczCafe
+
+34 - LczWc
+
+35 - LightContainmentDoor
+
+36 - NukeArmory
+
+37 - NukeSurface
+
+38 - PrisonDoor
+
+39 - SurfaceGate
+
+40 - Scp330
+
+41 - Scp330Chamber
+
+42 - CheckpointGateA
+
+43 - CheckpointGateB
+
+44 - SurfaceDoor
+
+45 - CheckpointEzHczA
+
+46 - CheckpointEzHczB
+
+47 - UnknownGate
+
+48 - UnknownElevator
+
+49 - ElevatorGateA
+
+50 - ElevatorGateB
+
+51 - ElevatorNuke
+
+52 - ElevatorScp049
+
+53 - ElevatorLczA
+
+54 - ElevatorLczB
+
+55 - CheckpointArmoryA
+
+56 - CheckpointArmoryB
+
+57 - Airlock
+
+58 - Scp173NewGate
+
+59 - EscapeFinal
+
+
+
+=== ENUM ===
+
+Name: EffectType
+
+The list of valid in-game effects.
+
+
+
+Options:
+
+0 - None
+
+1 - AmnesiaItems
+
+2 - AmnesiaVision
+
+3 - Asphyxiated
+
+4 - Bleeding
+
+5 - Blinded
+
+6 - Burned
+
+7 - Concussed
+
+8 - Corroding
+
+9 - Deafened
+
+10 - Decontaminating
+
+11 - Disabled
+
+12 - Ensnared
+
+13 - Exhausted
+
+14 - Flashed
+
+15 - Hemorrhage
+
+16 - Invigorated
+
+17 - BodyshotReduction
+
+18 - Poisoned
+
+19 - Scp207
+
+20 - Invisible
+
+21 - SinkHole
+
+22 - DamageReduction
+
+23 - MovementBoost
+
+24 - RainbowTaste
+
+25 - SeveredHands
+
+26 - Stained
+
+27 - Vitality
+
+28 - Hypothermia
+
+29 - Scp1853
+
+30 - CardiacArrest
+
+31 - InsufficientLighting
+
+32 - SoundtrackMute
+
+33 - SpawnProtected
+
+34 - Traumatized
+
+35 - AntiScp207
+
+36 - Scanned
+
+37 - PocketCorroding
+
+38 - SilentWalk
+
+39 - Marshmallow
+
+40 - Strangled
+
+41 - Ghostly
+
+42 - FogControl
+
+43 - Slowness
+
+44 - Scp1344
+
+45 - SeveredEyes
+
+46 - PitDeath
+
+47 - Blurred
+
+48 - BecomingFlamingo
+
+49 - Scp559
+
+50 - Scp956Target
+
+51 - Snowed
+
+
+
+=== ENUM ===
+
+Name: ElevatorType
+
+The list of valid in-game elevator types.
+
+
+
+Options:
+
+0 - Unknown
+
+1 - GateA
+
+2 - GateB
+
+3 - Nuke
+
+4 - Scp049
+
+5 - LczA
+
+6 - LczB
+
+
+
+=== ENUM ===
+
+Name: Faction
+
+The list of valid in-game factions.
+
+
+
+Options:
+
+0 - SCP
+
+1 - FoundationStaff
+
+2 - FoundationEnemy
+
+3 - Unclassified
+
+4 - Flamingos
+
+
+
+=== ENUM ===
+
+Name: ItemType
+
+The list of valid in-game items.
+
+
+
+Options:
+
+0 - KeycardJanitor
+
+1 - KeycardScientist
+
+2 - KeycardResearchCoordinator
+
+3 - KeycardZoneManager
+
+4 - KeycardGuard
+
+5 - KeycardMTFPrivate
+
+6 - KeycardContainmentEngineer
+
+7 - KeycardMTFOperative
+
+8 - KeycardMTFCaptain
+
+9 - KeycardFacilityManager
+
+10 - KeycardChaosInsurgency
+
+11 - KeycardO5
+
+12 - Radio
+
+13 - GunCOM15
+
+14 - Medkit
+
+15 - Flashlight
+
+16 - MicroHID
+
+17 - SCP500
+
+18 - SCP207
+
+19 - Ammo12gauge
+
+20 - GunE11SR
+
+21 - GunCrossvec
+
+22 - Ammo556x45
+
+23 - GunFSP9
+
+24 - GunLogicer
+
+25 - GrenadeHE
+
+26 - GrenadeFlash
+
+27 - Ammo44cal
+
+28 - Ammo762x39
+
+29 - Ammo9x19
+
+30 - GunCOM18
+
+31 - SCP018
+
+32 - SCP268
+
+33 - Adrenaline
+
+34 - Painkillers
+
+35 - Coin
+
+36 - ArmorLight
+
+37 - ArmorCombat
+
+38 - ArmorHeavy
+
+39 - GunRevolver
+
+40 - GunAK
+
+41 - GunShotgun
+
+42 - SCP330
+
+43 - SCP2176
+
+44 - SCP244a
+
+45 - SCP244b
+
+46 - SCP1853
+
+47 - ParticleDisruptor
+
+48 - GunCom45
+
+49 - SCP1576
+
+50 - Jailbird
+
+51 - AntiSCP207
+
+52 - GunFRMG0
+
+53 - GunA7
+
+54 - Lantern
+
+55 - SCP1344
+
+56 - Snowball
+
+57 - Coal
+
+58 - SpecialCoal
+
+59 - SCP1507Tape
+
+-1 - None
+
+
+
+=== ENUM ===
+
+Name: RoleTypeId
+
+The list of valid in-game roles.
+
+
+
+Options:
+
+0 - Scp173
+
+1 - ClassD
+
+2 - Spectator
+
+3 - Scp106
+
+4 - NtfSpecialist
+
+5 - Scp049
+
+6 - Scientist
+
+7 - Scp079
+
+8 - ChaosConscript
+
+9 - Scp096
+
+10 - Scp0492
+
+11 - NtfSergeant
+
+12 - NtfCaptain
+
+13 - NtfPrivate
+
+14 - Tutorial
+
+15 - FacilityGuard
+
+16 - Scp939
+
+17 - CustomRole
+
+18 - ChaosRifleman
+
+19 - ChaosMarauder
+
+20 - ChaosRepressor
+
+21 - Overwatch
+
+22 - Filmmaker
+
+23 - Scp3114
+
+24 - Destroyed
+
+25 - Flamingo
+
+26 - AlphaFlamingo
+
+27 - ZombieFlamingo
+
+-1 - None
+
+
+
+=== ENUM ===
+
+Name: RoomType
+
+The list of valid in-game rooms.
+
+
+
+Options:
+
+0 - Unknown
+
+1 - LczArmory
+
+2 - LczCurve
+
+3 - LczStraight
+
+4 - Lcz914
+
+5 - LczCrossing
+
+6 - LczTCross
+
+7 - LczCafe
+
+8 - LczPlants
+
+9 - LczToilets
+
+10 - LczAirlock
+
+11 - Lcz173
+
+12 - LczClassDSpawn
+
+13 - LczCheckpointB
+
+14 - LczGlassBox
+
+15 - LczCheckpointA
+
+16 - Hcz079
+
+17 - HczEzCheckpointA
+
+18 - HczEzCheckpointB
+
+19 - HczArmory
+
+20 - Hcz939
+
+21 - HczHid
+
+22 - Hcz049
+
+23 - HczCrossing
+
+24 - Hcz106
+
+25 - HczNuke
+
+26 - HczTesla
+
+27 - HczCurve
+
+28 - Hcz096
+
+29 - EzVent
+
+30 - EzIntercom
+
+31 - EzGateA
+
+32 - EzDownstairsPcs
+
+33 - EzCurve
+
+34 - EzPcs
+
+35 - EzCrossing
+
+36 - EzCollapsedTunnel
+
+37 - EzConference
+
+38 - EzChef
+
+39 - EzStraight
+
+40 - EzStraightColumn
+
+41 - EzCafeteria
+
+42 - EzUpstairsPcs
+
+43 - EzGateB
+
+44 - EzShelter
+
+45 - Pocket
+
+46 - Surface
+
+47 - HczStraight
+
+48 - EzTCross
+
+49 - Lcz330
+
+50 - EzCheckpointHallwayA
+
+51 - EzCheckpointHallwayB
+
+52 - HczTestRoom
+
+53 - HczElevatorA
+
+54 - HczElevatorB
+
+55 - HczCrossRoomWater
+
+56 - HczCornerDeep
+
+57 - HczIntersectionJunk
+
+58 - HczIntersection
+
+59 - HczStraightC
+
+60 - HczStraightPipeRoom
+
+61 - HczStraightVariant
+
+62 - EzSmallrooms
+
+
+
+=== ENUM ===
+
+Name: SpawnableFaction
+
+The list of valid in-game spawnable factions.
+
+
+
+Options:
+
+0 - None
+
+1 - NtfWave
+
+2 - ChaosWave
+
+3 - NtfMiniWave
+
+4 - ChaosMiniWave
+
+
+
+=== ENUM ===
+
+Name: SpawnLocationType
+
+The list of valid in-game spawn location types.
+
+
+
+Options:
+
+0 - Inside330
+
+1 - Inside330Chamber
+
+3 - Inside049Armory
+
+4 - Inside079Secondary
+
+5 - Inside096
+
+6 - Inside173Armory
+
+7 - Inside173Bottom
+
+8 - Inside173Connector
+
+9 - InsideEscapePrimary
+
+10 - InsideEscapeSecondary
+
+11 - InsideIntercom
+
+12 - InsideLczArmory
+
+13 - InsideLczCafe
+
+14 - InsideNukeArmory
+
+15 - InsideSurfaceNuke
+
+16 - Inside079First
+
+17 - Inside173Gate
+
+18 - Inside914
+
+19 - InsideGateA
+
+20 - InsideGateB
+
+21 - InsideGr18
+
+22 - InsideHczArmory
+
+23 - InsideHidChamber
+
+24 - InsideHidLower
+
+25 - InsideHidUpper
+
+26 - InsideLczWc
+
+
+
+=== ENUM ===
+
+Name: Team
+
+The list of valid in-game teams.
+
+
+
+Options:
+
+0 - SCPs
+
+1 - FoundationForces
+
+2 - ChaosInsurgency
+
+3 - Scientists
+
+4 - ClassD
+
+5 - Dead
+
+6 - OtherAlive
+
+7 - Flamingos
+
+
+
+=== ENUM ===
+
+Name: ZoneType
+
+The list of valid in-game zones.
+
+
+
+Options:
+
+0 - Unspecified
+
+1 - LightContainment
+
+2 - HeavyContainment
+
+4 - Entrance
+
+8 - Surface
+
+16 - Pocket
+
+32 - Other
+
+--------------
+
+The Kill Action
+
+Author: Thunder
+
+Tutorial Type: Actions
+
+--------------
+
+
+
+As self explanatory as it is, the kill action has several uses.
+
+
+
+The first, and most self-explanatory use, is to simply kill players with no message, by simply running the "KILL" action with no message and only players.
+
+For example, "KILL *" to kill all players with no message (or rather the 'Unknown cause of death' message).
+
+
+
+Second, players can be killed using a base-game message. This can be done by using a base-game DamageType. For all valid options, run "shelp DamageType" in the server console.
+
+For example, "KILL * MicroHid" will kill all players with the death message used by the Micro-HID.
+
+
+
+Third, and the most common use, players can be killed using a custom message.
+
+For example, "KILL * Jumped too much" will kill all players with a custom message.
+
+
+
+Lastly, bodies can simply be vaporized (like being killed by the Particle Disruptor), by using the key 'VAPORIZE'.
+
+For example, "KILL * VAPORIZE" will kill all players and vaporize the bodies.
+
+VARIABLES LIST : 
+
+
+
+=== VARIABLE ===
+
+Name: {STR-COUNT}
+
+Description: Returns how many occurences of a string are in a given string.
+
+Stores Players: NO
+
+Usage: {STR-COUNT:VARIABLE:SEQUENCE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<variable>
+
+  Required: YES
+
+  Type: String (Message/Text) Variable
+
+  The variable on which the operation will be performed.
+
+
+
+<sequence>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The sequence which will be counted in the given string.
+
+
+
+=== VARIABLE ===
+
+Name: {STR-INDEX}
+
+Description: Extract a certain part of a variables value using an index.
+
+Stores Players: NO
+
+Usage: {STR-INDEX:VARIABLE:INDEX:LISTSPLITCHAR}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<variable>
+
+  Required: YES
+
+  Type: String (Message/Text) Variable
+
+  The name of the variable.
+
+
+
+<index>
+
+  Required: YES
+
+  Type: Int (Whole Number)
+
+  The place from which the value should be taken.
+
+
+
+[listSplitChar]
+
+  Required: NO
+
+  Type: Character
+
+  The character that will split the variable into a list. Must be a 1 character only.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {STR-LOWER}
+
+Description: Returns the provided string where all UPPERCASE letters are replaced with lowercase ones.
+
+Stores Players: NO
+
+Usage: {STR-LOWER:STRING}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<string>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The string to lowercase.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {STR-REMOVE}
+
+Description: Returns the provided string where all the occurences of the specified string to remove are removed.
+
+Stores Players: NO
+
+Usage: {STR-REMOVE:MAINSTRING:STRINGTOREMOVE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<mainString>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The string to perform the operation on.
+
+
+
+<stringToRemove>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The string to remove.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {STR-REPLACE}
+
+Description: Replaces character sequneces.
+
+Stores Players: NO
+
+Usage: {STR-REPLACE:VARIABLENAME:TARGETSEQUENCE:REPLACINGSEQUENCE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<variableName>
+
+  Required: YES
+
+  Type: String (Message/Text) Variable
+
+  The variable on which the operation will be performed.
+
+
+
+<targetSequence>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The sequence which will be replaced.
+
+
+
+<replacingSequence>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The value to replace with.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {STR-UPPER}
+
+Description: Returns the provided string where all lowercase letters are replaced with UPPERCASE ones.
+
+Stores Players: NO
+
+Usage: {STR-UPPER:STRING}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<string>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The string to UPPERCASE.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {RANDOM}
+
+Description: Returns a random number from provided range.
+
+Stores Players: NO
+
+Usage: {RANDOM:TYPE:STARTNUMBER:ENDNUMBER}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<type>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The type to use.
+
+  Valid options for this argument:
+
+    - 'INT' - Will return an integer.
+
+    - 'FLOAT' - Will return a decimal (floating point) number.
+
+
+
+<startNumber>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  A starting number of the random range.
+
+
+
+<endNumber>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  An ending number of the random range.
+
+
+
+The return value will be a random number from the provided range, depending on the numbers and the type.
+
+
+
+If 'type' is set to 'INT':
+
+> act PRINT My integer is {RANDOM:INT:1:100}
+
+> My integer is 60
+
+
+
+If 'type' is set to 'FLOAT':
+
+> act PRINT My float is {RANDOM:FLOAT:0:1}
+
+> My float is 0.35227
+
+
+
+=== VARIABLE ===
+
+Name: {ESCAPES}
+
+Description: Players which have escaped the facility.
+
+Stores Players: YES
+
+Usage: {ESCAPES:MODE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ALL' - Scientists and ClassDs which have escaped.
+
+    - 'SCIENTISTS' - Scientists which have escaped.
+
+    - 'CLASSD' - ClassDs which have escaped.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {FILTER}
+
+Description: Filters a player variable by a certain type.
+
+Stores Players: YES
+
+Usage: {FILTER:NAME:TYPE:INPUT}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<name>
+
+  Required: YES
+
+  Type: Player Variable
+
+  The name of the variable to filter.
+
+
+
+<type>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The type to use.
+
+  Valid options for this argument:
+
+    - 'ROLE' - Filter by 'RoleTypeId'.
+
+    - 'TEAM' - Filter by 'Team' type.
+
+    - 'ROOM' - Filter by 'Room' type.
+
+    - 'USERID' - Filter by user id. (steam id)
+
+    - 'PLAYERID' - Filter by player id. (id in game)
+
+    - 'ITEM' - Filter by 'ItemType' in inventory.
+
+    - 'HELDITEM' - Filter by 'ItemType' in hand.
+
+    - 'GROUP' - Filter by group.
+
+    - 'ISSTAFF' - Filter by having RA access.
+
+    - 'EFFECT' - Filter by 'EffectType'.
+
+
+
+<input>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  What to use as the filter (ROOM, TEAM, etc.)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {INDEXPLR}
+
+Description: Indexes a player variable and gets ONE player at the specified position.
+
+Stores Players: YES
+
+Usage: {INDEXPLR:NAME:TYPE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<name>
+
+  Required: YES
+
+  Type: Player Variable
+
+  The name of the variable to index.
+
+
+
+<type>
+
+  Required: YES
+
+  Type: Int (Whole Number)
+
+  The index. Number variables can be used (if they are decimal, the decimal portion will be removed)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {LIMIT}
+
+Description: Creates a copy of a provided player variable, but does not copy more players than the limit provided.
+
+Stores Players: YES
+
+Usage: {LIMIT:NAME:AMOUNT}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<name>
+
+  Required: YES
+
+  Type: Player Variable
+
+  The name of the variable to select from.
+
+
+
+[amount]
+
+  Required: NO
+
+  Type: Int (Whole Number)
+
+  The amount of players to select (default: 1)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {INTERCOM}
+
+Description: All-in-one variable for Intercom related information.
+
+Stores Players: NO
+
+Usage: {INTERCOM:MODE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'READY' - Is ready to detonate.
+
+    - 'COOLDOWN' - The cooldown remaining.
+
+    - 'TIMELEFT' - The time left for speaking.
+
+    - 'INUSE' - Is in use already.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {INTERCOMSPEAKER}
+
+Description: Gets the amount of players who are speaking on the intercom (always either 0 or 1).
+
+Stores Players: YES
+
+Usage: {INTERCOMSPEAKER}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {ITEM-INFO}
+
+Description: Returns more information about the item using the item id.
+
+Stores Players: NO
+
+Usage: {ITEM-INFO:ITEMID:MODE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<itemId>
+
+  Required: YES
+
+  Type: Any Type
+
+  The item id to use.
+
+
+
+[mode]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ISVALID' - Is provided item id a valid item.
+
+    - 'CARRIED' - Is item is in owner's inventory.
+
+    - 'SCALE' - Item's scale.
+
+    - 'WEIGHT' - Item's weight.
+
+    - 'TYPE' - Item's type. Default option.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {ITEM-OWNER}
+
+Description: Returns the player which is the owner of the item.
+
+Stores Players: YES
+
+Usage: {ITEM-OWNER:ITEMID}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<itemId>
+
+  Required: YES
+
+  Type: Any Type
+
+  The item id.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {ITEM-RANDOM}
+
+Description: Gets the ItemType of a random item.
+
+Stores Players: NO
+
+Usage: {ITEM-RANDOM}
+
+Variable Type: String (Text)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {KILLS}
+
+Description: The amount of kills, the amount of kills per-role, or -1 if an invalid role type is provided.
+
+Stores Players: NO
+
+Usage: {KILLS:ROLE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+[role]
+
+  Required: NO
+
+  Type: RoleTypeId (ID / Number) OR Team (ID / Number)
+
+  The role or team to filter by. Optional.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCPKILLS}
+
+Description: The amount of SCP-related kills.
+
+Stores Players: NO
+
+Usage: {SCPKILLS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CASSIESPEAKING}
+
+Description: Whether or not CASSIE is currently speaking.
+
+Stores Players: NO
+
+Usage: {CASSIESPEAKING}
+
+Variable Type: Boolean (true/false)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {DECONTAMINATED}
+
+Description: Whether or not Light Containment Zone has been decontaminated.
+
+Stores Players: NO
+
+Usage: {DECONTAMINATED}
+
+Variable Type: Boolean (true/false)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {DOORSTATE}
+
+Description: Reveals the state of a door (either 'OPEN' or 'CLOSED').
+
+Stores Players: NO
+
+Usage: {DOORSTATE:DOOR}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<door>
+
+  Required: YES
+
+  Type: DoorType
+
+  The door to get the state of.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {GENERATORS}
+
+Description: Gets the number of generators fulfilling the requirements.
+
+Stores Players: NO
+
+Usage: {GENERATORS:MODE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ENGAGED'
+
+    - 'ACTIVATING'
+
+    - 'UNLOCKED'
+
+    - 'OPENED'
+
+    - 'CLOSED'
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {INROOM}
+
+Description: The amount of players in the specified room.
+
+Stores Players: YES
+
+Usage: {INROOM:ROOMTYPE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+[roomType]
+
+  Required: NO
+
+  Type: RoomType (ID / Number)
+
+  The room to filter by.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {MAPSEED}
+
+Description: Returns the current map seed.
+
+Stores Players: NO
+
+Usage: {MAPSEED}
+
+Variable Type: String (Text)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {OVERCHARGED}
+
+Description: Indicates whether or not SCP-079 was successfully contained via overcharge sequence.
+
+Stores Players: NO
+
+Usage: {OVERCHARGED}
+
+Variable Type: Boolean (true/false)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {RANDOMDOOR}
+
+Description: Gets the DoorType of a random door. Can be filtered by zone.
+
+Stores Players: NO
+
+Usage: {RANDOMDOOR:ZONE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+[zone]
+
+  Required: NO
+
+  Type: ZoneType
+
+  A zone to filter by (optional).
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {RANDOMROOM}
+
+Description: Gets the RoomType of a random room. Can be filtered by zone.
+
+Stores Players: NO
+
+Usage: {RANDOMROOM:ZONE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+[zone]
+
+  Required: NO
+
+  Type: ZoneType
+
+  A zone to filter by (optional).
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP914ACTIVE}
+
+Description: Whether or not SCP-914 is currently active.
+
+Stores Players: NO
+
+Usage: {SCP914ACTIVE}
+
+Variable Type: Boolean (true/false)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {MATH-ABS}
+
+Description: Returns a non-negative value of a variable without regard to its sign.
+
+Stores Players: NO
+
+Usage: {MATH-ABS:VALUE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<value>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The value.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {MATH-POWER}
+
+Description: Returns an exponentiated number.
+
+Stores Players: NO
+
+Usage: {MATH-POWER:VALUE:EXPONENT}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<value>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  Number to exponentiate.
+
+
+
+<exponent>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The exponentiating number.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {MATH-ROOT}
+
+Description: Returns a root of a number.
+
+Stores Players: NO
+
+Usage: {MATH-ROOT:VALUE:ROOTLEVEL}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<value>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The number to root.
+
+
+
+[rootLevel]
+
+  Required: NO
+
+  Type: Float (Number)
+
+  The root level. Default: 2
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {MATH-ROUND}
+
+Description: Returns a rounded number.
+
+Stores Players: NO
+
+Usage: {MATH-ROUND:VARIABLE:MODE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<variable>
+
+  Required: YES
+
+  Type: Float (Number)
+
+  The variable to round. Requires the variable to be a number.
+
+
+
+[mode]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'UP'
+
+    - 'DOWN'
+
+    - 'NEAREST' - Default option
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CUFFER}
+
+Description: Gets the player who has cuffed a specified player, if specified player is not cuffed or the specified player was not cuffed by a different player, value will be an empty player variable.
+
+Stores Players: YES
+
+Usage: {CUFFER:PLAYER}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<player>
+
+  Required: YES
+
+  Type: Player
+
+  The player which is cuffed.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {LOG}
+
+Description: Shows the name of the variable with its value. Useful for quick debugging.
+
+Stores Players: NO
+
+Usage: {LOG:VARIABLE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<variable>
+
+  Required: YES
+
+  Type: Condition Variable
+
+  The variable.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {STORAGE}
+
+Description: Retrives a variable from storage.
+
+Stores Players: NO
+
+Usage: {STORAGE:VARIABLENAME}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<variableName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The variable name to retrive.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CMDVAR}
+
+Description: Converts a player variable into a format to use with commands.
+
+Stores Players: NO
+
+Usage: {CMDVAR:NAME}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<name>
+
+  Required: YES
+
+  Type: Player List
+
+  The name of the player variable.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {DISPLAY}
+
+Description: Displays players in a player variable.
+
+Stores Players: NO
+
+Usage: {DISPLAY:PLAYERS:MODE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players to display.
+
+
+
+[mode]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'NAME' - Display players' names. The default option
+
+    - 'DPNAME' - Display players' display names.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {GET}
+
+Description: Gets certain properties about the players in a player variable.
+
+Stores Players: NO
+
+Usage: {GET:NAME:SELECTOR}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<name>
+
+  Required: YES
+
+  Type: Player List
+
+  The player to get the info of.
+
+
+
+[selector]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The selector to use.
+
+  Valid options for this argument:
+
+    - 'NAME' - Player's name
+
+    - 'DPNAME' - Player's display name
+
+    - 'UID' - Player's user id
+
+    - 'PID' - Player's player id
+
+    - 'ROLE' - Player's role
+
+    - 'TEAM' - Player's team
+
+    - 'ROOM' - Room where player is
+
+    - 'ZONE' - Zone where player is
+
+    - 'HP' - Player's health
+
+    - 'ITEMCOUNT' - Amount of items in player's inventory
+
+    - 'ITEMS' - Items in player's inventory
+
+    - 'HELDITEM' - Item which player is holding
+
+    - 'ISGOD' - Player's god status
+
+    - 'POSX' - Player's X position
+
+    - 'POSY' - Player's Y position
+
+    - 'POSZ' - Player's Z position
+
+    - 'TIER' - Player's tier as SCP079 (-1 if player is not SCP079)
+
+    - 'GROUP' - Player's remote admin rank
+
+    - 'ISCUFFED' - Is player cuffed
+
+    - 'CUSTOMI' - Player's custom info
+
+    - 'XSIZE' - Player's size on X axis
+
+    - 'YSIZE' - Player's size on Y axis
+
+    - 'ZSIZE' - Player's size on Z axis
+
+    - 'KILLS' - Player's kills
+
+    - 'EFFECTS' - Player's current effects
+
+    - 'USINGNOCLIP' - Is player using noclip
+
+    - 'CANNOCLIP' - Is player permitted to use noclip
+
+    - 'STAMINA' - How full is players stamina
+
+    - 'AHP' - Player's artificial hp
+
+
+
+This variable is designed to only be used with a player variable containing one player.
+
+
+
+=== VARIABLE ===
+
+Name: {GETPLAYERSBYDATA}
+
+Description: Gets all players from a variable if their playerdata matches the required value.
+
+Stores Players: YES
+
+Usage: {GETPLAYERSBYDATA:PLAYERS:KEY:REQUIREDVALUE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<players>
+
+  Required: YES
+
+  Type: Player List
+
+  The players variable from which the players will be fetched from.
+
+
+
+<key>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The key from which the value will be fetched and compared with the required value.
+
+
+
+<requiredValue>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The value that the player key must have in order to get included.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {HUMANS}
+
+Description: The amount of humans that are currently alive.
+
+Stores Players: YES
+
+Usage: {HUMANS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {NONE}
+
+Description: Will always be an empty variable with no players.
+
+Stores Players: YES
+
+Usage: {NONE}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {NPCS}
+
+Description: The amount of NPCs in the server.
+
+Stores Players: YES
+
+Usage: {NPCS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {PLAYERS}
+
+Description: The amount of players in the server.
+
+Stores Players: YES
+
+Usage: {PLAYERS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {PLAYERSALIVE}
+
+Description: The amount of alive players in the server.
+
+Stores Players: YES
+
+Usage: {PLAYERSALIVE}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {PLAYERSDEAD}
+
+Description: The amount of dead players in the server.
+
+Stores Players: YES
+
+Usage: {PLAYERSDEAD}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP096TARGETS}
+
+Description: The amount of players that are being targeted by an SCP-096.
+
+Stores Players: YES
+
+Usage: {SCP096TARGETS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP173OBSERVERS}
+
+Description: The amount of players that are looking at SCP-173.
+
+Stores Players: YES
+
+Usage: {SCP173OBSERVERS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SERVERSTAFF}
+
+Description: The amount of staff on the server (RA access)
+
+Stores Players: YES
+
+Usage: {SERVERSTAFF}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {ALPHAFLAMINGO}
+
+Description: The amount of AlphaFlamingo alive.
+
+Stores Players: YES
+
+Usage: {ALPHAFLAMINGO}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CHAOSCONSCRIPT}
+
+Description: The amount of ChaosConscript alive.
+
+Stores Players: YES
+
+Usage: {CHAOSCONSCRIPT}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CHAOSMARAUDER}
+
+Description: The amount of ChaosMarauder alive.
+
+Stores Players: YES
+
+Usage: {CHAOSMARAUDER}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CHAOSREPRESSOR}
+
+Description: The amount of ChaosRepressor alive.
+
+Stores Players: YES
+
+Usage: {CHAOSREPRESSOR}
+
+Variable Type: Numerical
+
+
+
+=== VARIABLE ===
+
+Name: {CHAOSRIFLEMAN}
+
+Description: The amount of ChaosRifleman alive.
+
+Stores Players: YES
+
+Usage: {CHAOSRIFLEMAN}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CI}
+
+Description: The amount of Chaos Insurgency alive.
+
+Stores Players: YES
+
+Usage: {CI}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CLASSD}
+
+Description: The amount of ClassD alive.
+
+Stores Players: YES
+
+Usage: {CLASSD}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CUSTOMROLE}
+
+Description: The amount of CustomRole alive.
+
+Stores Players: YES
+
+Usage: {CUSTOMROLE}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {DESTROYED}
+
+Description: The amount of Destroyed alive.
+
+Stores Players: YES
+
+Usage: {DESTROYED}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {FACILITYGUARD}
+
+Description: The amount of FacilityGuard alive.
+
+Stores Players: YES
+
+Usage: {FACILITYGUARD}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {FILMMAKER}
+
+Description: The amount of Filmmaker alive.
+
+Stores Players: YES
+
+Usage: {FILMMAKER}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {FLAMINGO}
+
+Description: The amount of Flamingo alive.
+
+Stores Players: YES
+
+Usage: {FLAMINGO}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {GUARDS}
+
+Description: The amount of facility guards alive. Equivalent to {FACILITYGUARD}
+
+Stores Players: YES
+
+Usage: {GUARDS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {MTF}
+
+Description: The amount of MTF alive.
+
+Stores Players: YES
+
+Usage: {MTF}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {MTFANDGUARDS}
+
+Description: The amount of facility guards & MTF alive.
+
+Stores Players: YES
+
+Usage: {MTFANDGUARDS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {NTFCAPTAIN}
+
+Description: The amount of NtfCaptain alive.
+
+Stores Players: YES
+
+Usage: {NTFCAPTAIN}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {NTFPRIVATE}
+
+Description: The amount of NtfPrivate alive.
+
+Stores Players: YES
+
+Usage: {NTFPRIVATE}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {NTFSERGEANT}
+
+Description: The amount of NtfSergeant alive.
+
+Stores Players: YES
+
+Usage: {NTFSERGEANT}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {NTFSPECIALIST}
+
+Description: The amount of NtfSpecialist alive.
+
+Stores Players: YES
+
+Usage: {NTFSPECIALIST}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {OVERWATCH}
+
+Description: The amount of Overwatch alive.
+
+Stores Players: YES
+
+Usage: {OVERWATCH}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCIENTIST}
+
+Description: The amount of Scientist alive.
+
+Stores Players: YES
+
+Usage: {SCIENTIST}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP049}
+
+Description: The amount of Scp049 alive.
+
+Stores Players: YES
+
+Usage: {SCP049}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP079}
+
+Description: The amount of Scp079 alive.
+
+Stores Players: YES
+
+Usage: {SCP079}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP096}
+
+Description: The amount of Scp096 alive.
+
+Stores Players: YES
+
+Usage: {SCP096}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP106}
+
+Description: The amount of Scp106 alive.
+
+Stores Players: YES
+
+Usage: {SCP106}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP173}
+
+Description: The amount of Scp173 alive.
+
+Stores Players: YES
+
+Usage: {SCP173}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP0492}
+
+Description: The amount of Scp0492 alive.
+
+Stores Players: YES
+
+Usage: {SCP0492}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP939}
+
+Description: The amount of Scp939 alive.
+
+Stores Players: YES
+
+Usage: {SCP939}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCP3114}
+
+Description: The amount of Scp3114 alive.
+
+Stores Players: YES
+
+Usage: {SCP3114}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SCPS}
+
+Description: The amount of SCPs alive.
+
+Stores Players: YES
+
+Usage: {SCPS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SH}
+
+Description: The amount of Serpent's Hand alive (always 0 if the plugin is not installed).
+
+Stores Players: YES
+
+Usage: {SH}
+
+Variable Type: Numerical
+
+
+
+=== VARIABLE ===
+
+Name: {SPECTATOR}
+
+Description: The amount of Spectator alive.
+
+Stores Players: YES
+
+Usage: {SPECTATOR}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {TUTORIAL}
+
+Description: The amount of Tutorial alive.
+
+Stores Players: YES
+
+Usage: {TUTORIAL}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {UIU}
+
+Description: The amount of UIU alive (always 0 if the plugin is not installed).
+
+Stores Players: YES
+
+Usage: {UIU}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {ZOMBIEFLAMINGO}
+
+Description: The amount of ZombieFlamingo alive.
+
+Stores Players: YES
+
+Usage: {ZOMBIEFLAMINGO}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {LOBBYLOCKED}
+
+Description: Returns the lobbylock setting status.
+
+Stores Players: NO
+
+Usage: {LOBBYLOCKED}
+
+Variable Type: Boolean (true/false)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {ROUND}
+
+Description: All-in-one variable for round related information.
+
+Stores Players: NO
+
+Usage: {ROUND:MODE}
+
+Variable Type: Boolean (true/false)
+
+
+
+Arguments:
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'LOCKED' - Retruns the roundlock status.
+
+    - 'STARTED' - TRUE if round has started.
+
+    - 'INPROGRESS' - TRUE if round is in progress, neither started or ended.
+
+    - 'ENDED' - TRUE if round has ended.
+
+
+
+=== VARIABLE ===
+
+Name: {UPTIMEROUND}
+
+Description: The amount of rounds that have progressed since the server has started.
+
+Stores Players: NO
+
+Usage: {UPTIMEROUND}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {ISRUNNING}
+
+Description: Whether or not a specific script is running.
+
+Stores Players: NO
+
+Usage: {ISRUNNING:SCRIPTNAME}
+
+Variable Type: Boolean (true/false)
+
+
+
+Arguments:
+
+
+
+<scriptName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name of the script.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {THIS}
+
+Description: Returns information about the script.
+
+Stores Players: NO
+
+Usage: {THIS:MODE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+[mode]
+
+  Required: NO
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'AUTORUN' - 'TRUE' or 'FALSE' depending on if the script is set to auto-run when the round restarts.
+
+    - 'CALLER' - The name of the script that called this script.
+
+    - 'CONTEXT' - The context in which the script was executed. Valid options are: RemoteAdmin, ServerConsole, Automatic, PlayerConsole
+
+    - 'DEBUG' - 'TRUE' or 'FALSE' depending on if the script is in debug mode.
+
+    - 'DURATION' - The amount of time (in seconds) the script has been running.
+
+    - 'NAME' - The name of the script.
+
+    - 'PATH' - The path to the script on the local directory.
+
+    - 'VARIABLES' - Lists variable names available to this script only.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {VEXISTS}
+
+Description: Whether or not the variable with the given name exists in the current context.
+
+Stores Players: NO
+
+Usage: {VEXISTS:VARIABLENAME}
+
+Variable Type: Boolean (true/false)
+
+
+
+Arguments:
+
+
+
+<variableName>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The name of the variable.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SERVER}
+
+Description: All-in-one variable for server related information.
+
+Stores Players: NO
+
+Usage: {SERVER:MODE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'IP'
+
+    - 'PORT'
+
+    - 'NAME'
+
+    - 'MAXPLAYERS'
+
+    - 'TPS'
+
+    - 'VERIFIED'
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CHAOSSPAWNS}
+
+Description: Total amount of Chaos Insurgency respawns.
+
+Stores Players: NO
+
+Usage: {CHAOSSPAWNS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {CHAOSTICKETS}
+
+Description: The amount of Chaos Insurgency tickets.
+
+Stores Players: NO
+
+Usage: {CHAOSTICKETS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {LASTRESPAWNTEAM}
+
+Description: The most recent team that spawn.
+
+Stores Players: NO
+
+Usage: {LASTRESPAWNTEAM}
+
+Variable Type: String (Text)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {LASTRESPAWNUNIT}
+
+Description: The most recent team's unit name.
+
+Stores Players: NO
+
+Usage: {LASTRESPAWNUNIT}
+
+Variable Type: String (Text)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {MTFSPAWNS}
+
+Description: Total amount of Mobile Task Force respawns.
+
+Stores Players: NO
+
+Usage: {MTFSPAWNS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {NEXTWAVE}
+
+Description: The next faction to spawn.
+
+Stores Players: NO
+
+Usage: {NEXTWAVE}
+
+Variable Type: String (Text)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {NTFTICKETS}
+
+Description: The amount of NTF tickets.
+
+Stores Players: NO
+
+Usage: {NTFTICKETS}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {RESPAWNEDPLAYERS}
+
+Description: The amount of players that have respawned in the most recent respawn wave.
+
+Stores Players: YES
+
+Usage: {RESPAWNEDPLAYERS:ROLETYPE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+[roleType]
+
+  Required: NO
+
+  Type: RoleTypeId (ID / Number)
+
+  The role to filter by.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {TIMESINCELASTWAVE}
+
+Description: The amount of time since the last respawn wave, in seconds. If a respawn wave has not occurred yet, this value will be very large.
+
+Stores Players: NO
+
+Usage: {TIMESINCELASTWAVE}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {TIMEUNTILNEXTWAVE}
+
+Description: The amount of time until the next respawn wave, in seconds.
+
+Stores Players: NO
+
+Usage: {TIMEUNTILNEXTWAVE}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {TOTALWAVES}
+
+Description: The amount of respawn waves.
+
+Stores Players: NO
+
+Usage: {TOTALWAVES}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {WAVERESPAWNING}
+
+Description: Whether or not a wave has respawned within the last 5 seconds.
+
+Stores Players: NO
+
+Usage: {WAVERESPAWNING}
+
+Variable Type: Boolean (true/false)
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {TIME}
+
+Description: All-in-one variable for time related information. All time information is based on the UTC timezone.
+
+Stores Players: NO
+
+Usage: {TIME:MODE}
+
+Variable Type: Numerical
+
+
+
+Arguments:
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'TICK' - The amount of seconds since 1.1.1970
+
+    - 'SECOND' - 0-59
+
+    - 'MINUTE' - 0-59
+
+    - 'HOUR' - 0-23
+
+    - 'YEAR' - The amount of years since the birth of Christ
+
+    - 'DAYOFWEEK' - 1-7 (Warning! This follows the US system, where Saturday is the first day of the week)
+
+    - 'DAYOFMONTH' - 0-31
+
+    - 'DAYOFYEAR' - 0-366
+
+    - 'ROUNDMINUTES' - The amount of elapsed round time, in minutes.
+
+    - 'ROUNDSECONDS' - The amount of elapsed round time, in seconds.
+
+    - 'ROUNDSTART' - The amount of time remaining before the round starts. -1 if round already started.
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {WARHEAD}
+
+Description: All-in-one variable for warhead related information.
+
+Stores Players: NO
+
+Usage: {WARHEAD:MODE}
+
+Variable Type: String (Text)
+
+
+
+Arguments:
+
+
+
+<mode>
+
+  Required: YES
+
+  Type: String (Message/Text)
+
+  The mode to use.
+
+  Valid options for this argument:
+
+    - 'ISDETONATED'
+
+    - 'ISOPEN'
+
+    - 'ISARMED'
+
+    - 'ISCOUNTING'
+
+    - 'DETONATIONTIME'
+
+
+
+=== VARIABLE ===
+
+Name: {EZ}
+
+Description: The amount of players in Entrance Zone.
+
+Stores Players: YES
+
+Usage: {EZ}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {HCZ}
+
+Description: The amount of players in Heavy Containment Zone.
+
+Stores Players: YES
+
+Usage: {HCZ}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {LCZ}
+
+Description: The amount of players in Light Containment Zone.
+
+Stores Players: YES
+
+Usage: {LCZ}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {POCKET}
+
+Description: The amount of players in the Pocket Dimension.
+
+Stores Players: YES
+
+Usage: {POCKET}
+
+Variable Type: Numerical
+
+
+
+
+
+=== VARIABLE ===
+
+Name: {SURFACE}
+
+Description: The amount of players on the Surface.
+
+Stores Players: YES
+
+Usage: {SURFACE}
+
+Variable Type: Numerical
+
+
+
+SCRIPT EXEMPLES : 
+
+This is a exemple of a script for you see how its formulate... : 
+
+!-- ADMINEVENT
+
+
+
+WAITUNTIL {ROUNDSTARTED}
+
+
+
+ROUNDLOCK TRUE
+
+DOOR CLOSE 173_GATE
+
+DOOR LOCK 173_GATE 999999999999
+
+DOOR CLOSE Scp914Gate
+
+DOOR LOCK Scp914Gate 9999999999999
+
+COMMAND /cleanup items
+
+DOOR CLOSE LightContainmentDoor
+
+
+
+DISABLE ESCAPING
+
+DISABLE GENERATORS
+
+DISABLE LOCKERS
+
+DISABLE MICROPIKUPS
+
+DISABLE PEDESTALS
+
+DISABLE RESPAWNS
+
+DISABLE SCP330
+
+DISABLE SCP914
+
+DISABLE TESLAS
+
+DISABLE WARHEAD
+
+COMMAND /lockdown 2   
+
+
+
+SETROLE * Spectator
+
+
+
+SETROLE * Tutorial
+
+SETROLE {TUTORIAL} ClassD {PLAYERS}/2
+
+SETROLE {TUTORIAL} Scientist {PLAYERS}
+
+COMMAND /lockdown 1
+
+
+
+CLEARINVENTORY *
+
+
+
+GIVE {CLASSD} 50 1
+
+GIVE {SCIENTIST} 50 1
+
+
+
+TPROOM {SCIENTIST} Lcz914
+
+BROADCAST 3 <color=red>JAILBIRD TIME
+
+WAITSEC 2
+
+COUNTDOWN * 10 Es geht los in...
+
+WAITSEC 10
+
+COMMAND /lockdown 1 1
+
+
+
+DOOR OPEN Scp914Gate
+
+
+
+LOOP:
+
+WAITSEC 2
+
+GOTOIF MTFTRUE CIBEGIN {SCIENTIST} = 0
+
+
+
+MTFTRUE:
+
+BROADCAST 5 <color=green> Class D hat gewonnen
+
+GOTO ENDE
+
+
+
+CIBEGIN:
+
+GOTOIF TRUECI LOOP {CLASSD} = 0
+
+
+
+TRUECI:
+
+BROADCAST 5 <color=blue> Wissenschaftler hat gewonnen
+
+GOTO ENDE
+
+
+
+ENDE:
+
+BROADCAST 2 Gut Gemacht
+
+ROUNDLOCK FALSE
+
+STOP
