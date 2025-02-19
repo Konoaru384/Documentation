@@ -8515,185 +8515,29 @@ SCRIPT EXEMPLES :
 
 This is a exemple of a script for you see how its formulate... : 
 
-!-- ADMINEVENT
-
-
-
-WAITUNTIL {ROUNDSTARTED}
-
-
-
-ROUNDLOCK TRUE
-
-DOOR CLOSE 173_GATE
-
-DOOR LOCK 173_GATE 999999999999
-
-DOOR CLOSE Scp914Gate
-
-DOOR LOCK Scp914Gate 9999999999999
-
-COMMAND /cleanup items
-
-DOOR CLOSE LightContainmentDoor
-
-
-
-DISABLE ESCAPING
-
-DISABLE GENERATORS
-
-DISABLE LOCKERS
-
-DISABLE MICROPIKUPS
-
-DISABLE PEDESTALS
-
-DISABLE RESPAWNS
-
-DISABLE SCP330
-
-DISABLE SCP914
-
-DISABLE TESLAS
-
-DISABLE WARHEAD
-
-COMMAND /lockdown 2   
-
-
-
-SETROLE * Spectator
-
-
-
-SETROLE * Tutorial
-
-SETROLE {TUTORIAL} ClassD {PLAYERS}/2
-
-SETROLE {TUTORIAL} Scientist {PLAYERS}
-
-COMMAND /lockdown 1
-
-
-
-CLEARINVENTORY *
-
-
-
-GIVE {CLASSD} 50 1
-
-GIVE {SCIENTIST} 50 1
-
-
-
-TPROOM {SCIENTIST} Lcz914
-
-BROADCAST 3 <color=red>JAILBIRD TIME
-
-WAITSEC 2
-
-COUNTDOWN * 10 Es geht los in...
-
-WAITSEC 10
-
-COMMAND /lockdown 1 1
-
-
-
-DOOR OPEN Scp914Gate
-
-
-
-LOOP:
-
-WAITSEC 2
-
-GOTOIF MTFTRUE CIBEGIN {SCIENTIST} = 0
-
-
-
-MTFTRUE:
-
-BROADCAST 5 <color=green> Class D hat gewonnen
-
-GOTO ENDE
-
-
-
-CIBEGIN:
-
-GOTOIF TRUECI LOOP {CLASSD} = 0
-
-
-
-TRUECI:
-
-BROADCAST 5 <color=blue> Wissenschaftler hat gewonnen
-
-GOTO ENDE
-
-
-
-ENDE:
-
-BROADCAST 2 Gut Gemacht
-
-ROUNDLOCK FALSE
-
-STOP
-
-
-or you have this exemple that a script that autorun : 
 !-- AUTORUN
-WAIT UNTIL {ROUND:STARTED}
-LIGHTSOFF ALL 10
-DOOR LOCK LczClassDSpawn
-WAIT SEC 2
 
-LOCAL {SELECT_EVENT} {RANDOM:INT:1:5}
-LOG {SELECT_EVENT}
-GOTO 1 $IF {SELECT_EVENT} = 1
-GOTO 2 $IF {SELECT_EVENT} = 2
-GOTO 3 $IF {SELECT_EVENT} = 3
-GOTO 4 $IF {SELECT_EVENT} = 4
-GOTO 5 $IF {SELECT_EVENT} = 5
-STOP
+Loop:
+GOTO Deconta $IF {DECONTAMINATED}
+WAIT SEC 1
+GOTO Loop
 
-1:
- LOG Primo scenario. 
- CASSIE SILENT jam_048_3 Facility Diagnostic System is pitch_0.9 currently pitch_0.8 Offline. .g3 restarting
- WAIT SEC 10
- DOOR OPEN LczClassDSpawn
- CASSIE SILENT pitch_0.8 Diagnostic system is now reactivating. .g1 pitch_0.7 10 percent. pitch_0.8 30 percent. pitch_0.9 60 percent. 80 percent. pitch_1 100 percent. .g4 .g3 .g1 .g5 
- CASSIE SILENT Facility Diagnostic System is now . online BELL_END $IF {SCP079} = 0 
- CASSIE SILENT Attention . ClassD Containment Failure . Security Personnel . Report to Light Containment Zone . Immediately $IF {SCP079} = 1 
-STOP
+Deconta:
+LIGHTCOLOR SET HeavyContainment 24, 133, 12
+pitch_0.19 .G5 .G5 pitch_0.90 danger heavy containment emergency decontamination .G6 .G5 has been activated protocol will start in tminus 30 seconds
+DOOR OPEN HeavyContainment
+DOOR LOCK HeavyContainment
+DOOR UNLOCK HczEzCheckpointA
+DOOR UNLOCK HczEzCheckpointB
 
-2:
- LOG Secondo scenario. 
- CASSIE SILENT Sium 2
- WAIT SEC 10
- DOOR OPEN LczClassDSpawn
-STOP
-
-3:
- LOG Terzo scenario. 
- CASSIE SILENT Sium 3
- WAIT SEC 10
- DOOR OPEN LczClassDSpawn
-STOP
-
-4:
- LOG Quarto scenario. 
- CASSIE SILENT Sium 4 
- WAIT SEC 10
- DOOR OPEN LczClassDSpawn
-STOP
-
-5:
- LOG Quinto scenario
- CASSIE SILENT Sium 5
- WAIT SEC 10
- DOOR OPEN LczClassDSpawn
+WAIT SEC 60
+DOOR CLOSE HeavyContainment
+CASSILE LOUD heavy containment emergency decontamination started
+EFFECT ADD {HCZ} CardiacArrest 200 200
+WAIT SEC 60
+EFFECT ADD {HCZ} PitDeath 1 1
+DOOR UNLOCK HeavyContainment
+CASSIE LOUD .G4 Heavy Containment Zone Decontamination Has Been Successfully Executed And is now Operational .G3 .G5
+DOOR CLOSE HeavyContainment
+LIGHTCOLOR SET HeavyContainment 255 255 255
 STOP
