@@ -8636,3 +8636,58 @@ BROADCAST 2 Gut Gemacht
 ROUNDLOCK FALSE
 
 STOP
+
+
+or you have this exemple that a script that autorun : 
+!-- AUTORUN
+WAIT UNTIL {ROUND:STARTED}
+LIGHTSOFF ALL 10
+DOOR LOCK LczClassDSpawn
+WAIT SEC 2
+
+LOCAL {SELECT_EVENT} {RANDOM:INT:1:5}
+LOG {SELECT_EVENT}
+GOTO 1 $IF {SELECT_EVENT} = 1
+GOTO 2 $IF {SELECT_EVENT} = 2
+GOTO 3 $IF {SELECT_EVENT} = 3
+GOTO 4 $IF {SELECT_EVENT} = 4
+GOTO 5 $IF {SELECT_EVENT} = 5
+STOP
+
+1:
+ LOG Primo scenario. 
+ CASSIE SILENT jam_048_3 Facility Diagnostic System is pitch_0.9 currently pitch_0.8 Offline. .g3 restarting
+ WAIT SEC 10
+ DOOR OPEN LczClassDSpawn
+ CASSIE SILENT pitch_0.8 Diagnostic system is now reactivating. .g1 pitch_0.7 10 percent. pitch_0.8 30 percent. pitch_0.9 60 percent. 80 percent. pitch_1 100 percent. .g4 .g3 .g1 .g5 
+ CASSIE SILENT Facility Diagnostic System is now . online BELL_END $IF {SCP079} = 0 
+ CASSIE SILENT Attention . ClassD Containment Failure . Security Personnel . Report to Light Containment Zone . Immediately $IF {SCP079} = 1 
+STOP
+
+2:
+ LOG Secondo scenario. 
+ CASSIE SILENT Sium 2
+ WAIT SEC 10
+ DOOR OPEN LczClassDSpawn
+STOP
+
+3:
+ LOG Terzo scenario. 
+ CASSIE SILENT Sium 3
+ WAIT SEC 10
+ DOOR OPEN LczClassDSpawn
+STOP
+
+4:
+ LOG Quarto scenario. 
+ CASSIE SILENT Sium 4 
+ WAIT SEC 10
+ DOOR OPEN LczClassDSpawn
+STOP
+
+5:
+ LOG Quinto scenario
+ CASSIE SILENT Sium 5
+ WAIT SEC 10
+ DOOR OPEN LczClassDSpawn
+STOP
