@@ -1,9 +1,11 @@
 This is all of the scripted evnt documentation for do plugin with scripted event in exiled for scp secret laboratory :
 
-ACTION 
+How to start the script 
 A plugin do start with !-- For choose how the script do lunch
 Exemple
 !-- AUTORUN for automatically runs a script after a round is started
+
+List of diferent action ! :
 
 + ADVCUSTOMINFO +
 
